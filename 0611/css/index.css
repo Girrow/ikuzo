@@ -6,10 +6,12 @@
 
 .section{
     min-height: calc(100vh - 300px);
-    background-color: #ecf0f1;
+    background-color: white;
 /*    마진 색상*/
+/*
     max-width: 980px;
     margin: auto;
+*/
 }
 
 .section iframe{
@@ -25,19 +27,19 @@
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 500px;
+    height: 1800px;
 }
 .section iframe.sanghyeok{
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 500px;
+    height: 1000px;
 }
 .section iframe.daehwan{
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 500px;
+    height: 1000px;
 }
 .section iframe.sumin{
     /*    height: auto;
