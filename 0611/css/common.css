@@ -364,3 +364,17 @@ textarea {
     color: #000;
     padding: 0.2em 0;
 }
+
+/*  공용 CSS 타입*/
+
+.center{
+    text-align: center;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
