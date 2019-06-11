@@ -21,12 +21,13 @@ h3{
 }
 
 h5{
-    color: #AAAAAA;
+    color: #AAAAAA!important;
+    font-size: 12px;
 }
 
 h6{
     font-size: 32px;
-    margin:20px 0 20px 0;
+    margin:10px 0 10px 0;
     color: #818181;
 }
 .box_hr{
