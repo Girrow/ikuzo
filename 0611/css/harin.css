@@ -1,3 +1,6 @@
+body{
+    font-style:400 15px Lato, sans-serif;
+}
 .harin_color{
     background-color:#c86a60;
     height: 1000px;
@@ -32,6 +35,10 @@ h6{
     display: inline-block;
     border: 1px solid #c86a60;
     
+}
+
+.magin .box_hr{
+    margin: 2%
 }
 
 .box_or_hr{
@@ -104,6 +111,7 @@ h6{
 */
 .con_right_hr{
     width: calc(100% - 41.6%);
+    font-style:400 15px Lato, sans-serif;
 }
 
 .con_right_hr form input[type=text].name_hr{
@@ -113,6 +121,9 @@ h6{
     width: 44%;
     margin-bottom: 10px;
     margin-left:0px;
+    padding: 4px 0;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 .email_hr{
@@ -122,6 +133,9 @@ h6{
     width: 44%;
     margin-bottom: 10px;
     margin-left:0px;
+    padding: 4px 0;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 .area_hr{
@@ -131,6 +145,8 @@ h6{
     width: 94%;
     margin-bottom: 10px;
     margin-left:0px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 .con_right_hr form input[type=submit]{
@@ -149,6 +165,8 @@ h6{
 
 
 
+
+/*
 @media only screen and (max-width:872px){
     .box_hr{
         width: 95%;
@@ -184,10 +202,11 @@ h6{
     }
     
     .con_right_hr form input[type=submit]{
-        top:80%;
+        top:88%;
         left: 86%;
     }
     
     .contact{
         height: 500px!important;
     }
+*/
