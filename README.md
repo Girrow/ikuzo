@@ -4,14 +4,19 @@
 
 시작하면 git cmd 창에서 아래의 두개 본인것으로 바꾸어서 입력
 
+**우선적으로 이 두개를 먼저 실행할 것
+
 $ git config --global user.name "John Doe"
 ---
 $ git config --global user.email johndoe@example.com
-
 ---
-git clone https://github.com/girrow/ikuzo
 
-git pull
+$ git clone https://github.com/girrow/ikuzo
+---
+****or
+
+$ git pull
+---
 - 수정된 파일이 있을경우 값 받기
 
 git add .
