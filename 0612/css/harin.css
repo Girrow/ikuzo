@@ -1,5 +1,158 @@
-.harin_color{
-    background-color:#e74c3c;
-    width: 100%;
-    height: 500px;
+html,body{
+    padding: 0;
+    margin: 0;
+}
+
+.mainPic{
+    background-image: url(../img/harin1.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    background-repeat:repeat-x;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.butterfly{
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-image: url(../img/harin2.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 150px;
+    position: absolute;
+}
+
+.searchBar{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    maxlength="200"
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+/*      position: relative;*/
+    
+}
+
+.searchBar input#search{
+  width: 400px;
+  height: 35px;
+  background: #404a60;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.searchBar input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+ 
+.searchBar input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+ 
+.searchBar input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+ 
+.searchBar input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+
+/*
+div{
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+*/
+
+.imgform div{
+    width: 22%;
+/*    background-color:blanchedalmond;*/
+    display: inline-block;
+    height: auto;
+}
+
+
+
+
+.imgform div:nth-child(n){
+    margin-right: 3%;
+}
+.imgform div:nth-child(4){
+    margin-right: 0px;
+}
+
+
+
+.img1{
+/*
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+*/
+    background-color: #F44336;
+}
+.img2{
+/*
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+*/
+    background-color: #2196F3;
+}
+.img3{
+/*
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+*/
+    background-color: #009688;
+}
+.img4{
+/*
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+*/
+    background-color: #FF9800;
+}
+/*
+.img4{
+    background-image: url(https://edge.media.datahc.com/PT234537.jpg?v=1.0.2019.162002-Cbaaebcce54bc80168a05dd430a1a4741d05d2daf);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+}
+*/
+
+
+.review_hr{
+    padding-top: 20px;
+}
+.review1{
+    float:left;width:100px;height: 100px;
+}
+.review2{
+    float:left;width:calc(100% - 100px);height: 100px;
+}
+
+
+@media only screen and (max-width:600px){
+    .imgform div{
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }

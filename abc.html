@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Contents</title>
+    <link rel="stylesheet" href="./fontello-c30f7b78/css/fontello.css">
+    <style>
+        ul {
+/*            list-style-type: circle;*/
+/*            list-style-image: url(../../0611/img/favicon.png);*/
+            padding-left: 0;
+        }
+
+        li {
+            height: 50px;
+        }
+
+        a {
+            display: inline-block;
+        }
+
+        img {
+            height: 100%
+        }
+        
+        label::before{
+            content: '\00a0\e800';
+            font-family:"fontello";
+            padding:0 10px;
+            background-color: red;
+        }
+        
+        label{
+            cursor: pointer;
+        }
+        .home{
+            display: none;
+        }
+        #home input[type="checkbox"]{
+            display: none;
+        }
+        
+        #home input[type="checkbox"]:checked~ul{
+            display:block;
+        }
+        
+        #home input[type="checkbox"]:checked+label::before{
+            content:"\e801";
+        }
+    </style>
+</head>
+
+<body>
+    
+    <ul>
+        <li id="home">
+            <input type="checkbox" id="iHome">
+            <label for="iHome">홈</label>
+        <ul class="home">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        </li>
+    </ul>
+    
+</body>
+
+</html>
