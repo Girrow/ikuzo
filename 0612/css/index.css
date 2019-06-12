@@ -7,6 +7,9 @@
 .section{
     min-height: calc(100vh - 300px);
     background-color: #ecf0f1;
+    max-width: 980px;
+    margin: auto;
+/*    margin:;*/
 /*    마진 색상*/
 }
 
