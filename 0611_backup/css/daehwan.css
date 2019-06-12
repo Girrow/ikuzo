@@ -1,4 +1,81 @@
-.daehwan_color{
-    background-color:#95a5a6;
-    height: 500px;
+html,body {
+    box-sizing: border-box;
+    line-height: 1.8;
+    font: 400 15px Lato, sans-serif;
+    color: #818181;
+}
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pad_dh {
+    padding: 60px 50px;
+    
+}
+
+.pad_dh {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.con_dh {
+    height:450px;
+}
+
+.pos_dh {
+    position: relative;
+    min-height: 1px;
+
+}
+
+.pos_dh {
+    width: 66.66666666%;
+    float: left;
+}
+.pos2_dh
+{
+     width: 70%;
+    float: left;  
+}
+
+.but_dh{
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border:1px solid #d1d1d1;
+}
+
+.btn_dh {
+    padding: 10px 16px;
+    font-size: 18px;
+    border-radius: 8px;    
+}
+
+.pad2_dh {
+    padding: 64px 50px;
+}
+
+.con2_dh {
+    height: 370px;
+}
+
+.center_dh {
+    text-align: center;
+}
+
+.con3_dh {
+    height: 550px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
 }

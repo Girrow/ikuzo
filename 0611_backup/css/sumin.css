@@ -1,4 +1,160 @@
+.logo_sm,.menubar_sm{
+    background-color: #f4511e;
+}
 .sumin_color{
-    background-color: #9b59b6;
     height: 500px;
 }
+
+.menubar_sm {
+    height: 50px;
+    width: 100%;
+    background-color: #f4511e;
+    z-index: 1;
+    position: fixed;
+}
+
+.p30 {
+  padding-right: 10%;  
+}
+
+.menubar2_sm {
+    height: 50px;
+    width: 100%;
+    background-color: #f4511e;
+   
+    position: fixed;
+}
+
+.menu_sm:hover{
+    background-color: white;
+    color: #f4511e;
+}
+
+.menubar_sm a:link,.menubar_sm a:visited,.menubar2_sm a:link,.menubar2_sm a:visited {
+    color: white;
+}
+
+.rabbit_sm {
+    border: solid white;
+    height: 50px;
+    width: 50px;
+    float: right;
+    background: url("../img/rabbit.jpg") no-repeat;
+
+    /*cursor: pointer;*/
+}
+
+
+
+.header_sm {
+    width: 100%;
+    float: left;
+    text-align: center;
+    background-color: #f4511e;
+    height: 300px;
+}    
+
+.menu_sm {
+    height: 10px;
+    float: right;
+    padding: 20px 15px;
+   
+}
+
+.logo_sm {
+    height: 10px;
+    float: left;
+    padding: 20px 15px;
+    
+}
+
+@media screen and (max-width: 700px) {
+    article {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        display: none;
+    }
+}
+
+
+.header_sm {
+    width: 100%;
+    float: left;
+    text-align: center;
+    background-color: #f4511e;
+    height: 300px;
+}
+
+.company_sm {
+    font-size: 3rem;
+    margin: 15px;
+    position:relative;
+    top: 50px;
+    font
+}
+
+.bla_sm {
+    font-size: 1.5rem;
+    position: relative;
+    top: 55px;
+}
+
+.email_sm {
+    position: relative;
+    top: 80px;
+}
+
+.left_sm {
+    float: left;
+}
+
+.input_sm {
+    height: 30px;
+    font: 400 15px Lato,sans-serif;
+    
+}
+
+
+.button_sm {
+    margin-left: -6px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100px;
+    height: 37px;
+    color: white;
+    background-color:#d87685;
+    border:1px solid #d1475c;
+}
+
+.footer_sm {
+    text-align: center;
+    height: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    width: 100%;
+}
+
+.arrow_sm {
+    margin-top: 50px;
+}
+
+.madeby_sm {
+    margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
