@@ -7,8 +7,12 @@
 .section{
     min-height: calc(100vh - 300px);
     background-color: #ecf0f1;
+    margin-left: 300px;
+/*
     max-width: 980px;
     margin: auto;
+*/
+    
 /*    margin:;*/
 /*    마진 색상*/
 }
@@ -26,30 +30,68 @@
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 500px;
+    height: 1700px;
 }
 .section iframe.sanghyeok{
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 500px;
+    height: 800px;
 }
 .section iframe.daehwan{
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 500px;
+    height: 700px;
 }
 .section iframe.sumin{
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 500px;
+    height: 100px;
 }
 
+.footer{
+    margin-left: 300px;
+}
+@media screen and (max-width:990px) {
+    .section{
+        margin: 0;
+        width: 100%;
+    }
+    .footer{
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .section iframe.harin{
+        height: 2200px;
+    }
+    .section iframe.daehwan{
+        height: 1300px;
+        
+    }
+    .section iframe.sanghyeok {
+        height: 1300px;
+    }
+}
+
+/*
+@media screen and (min-width:990px) {
+    .section {
+        margin-left: 300px;
+    }
+    .footer {
+        margin-left: 300px;
+    }
+    
+}
+*/
 
 
 .footer{
     height: 200px;
-    background-color: #34495e;
+    background-color: #9eabe2;
 }

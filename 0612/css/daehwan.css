@@ -1,4 +1,74 @@
-.daehwan_color{
-    background-color:#95a5a6;
-    height: 500px;
+        html, body {padding: 0; margin: 0;}
+        html,body{
+            font-size: 15px;
+
+            line-height: 1.5;
+        }
+        .con_dh {            
+            width: 100%;
+            height: 350px;
+        }
+        .fw_dh {            
+            width: 20%;
+        }
+        .fw_dh {
+            float: left;
+        }
+        .fw2_dh {
+            width: 80%;
+        }
+        .fw2_dh {
+            float: left;
+        }
+        .ra_dh {
+            border-radius:50px;
+        }
+        .padd_dh{
+            padding: 0.01em 16px;
+        }
+        .con2_dh {
+            width: 100%;
+            overflow: hidden;
+            
+            color: #ffffff!important;
+            background-color: #616161;
+        }
+        .pa3_dh {
+            width: 28%;
+        }
+        .cp_dh {
+            padding:5px 13px;
+        }
+        
+        .bo_dh {
+            border-bottom:5px solid #f0f813;
+        }
+        .bo2_dh {
+            border-bottom:5px solid #f74459;
+        }
+        .bo3_dh {
+            border-bottom:5px solid #5ba24a;
+        }
+        
+        h3 {
+            font-size: 20px;
+            
+        }
+        .db_dh {
+            display: inline-block;
+        }
+        
+        .tt_dh {
+            float: left;
+        }
+@media screen and (max-width:600px) {
+    .fw_dh,.fw2_dh {
+        width: 100%;
+    }
+}
+@media screen and (max-width:600px) {
+    .pa3_dh {
+        width: 100%;
+
+    }
 }

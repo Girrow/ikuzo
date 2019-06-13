@@ -1,4 +1,118 @@
-.sanghyeok_color{
-    background-color:#2ecc71;
-    height: 500px;
+.h5_sh{
+    font-size:  18px;
 }
+.p_sh{
+    font-size: 15px;
+}
+.panel_sh{
+    margin-top:10px;
+    margin-bottom:16px;
+}
+.rowpa_sh{
+    padding-left: 8px;
+    padding-right: 8px;
+    box-sizing: inherit;
+}
+.pad_sh {
+    padding-top: 60px;
+    padding-right: 50px;
+    padding-bottom: 60px;
+    padding-left: 50px;
+}
+.third_sh{
+    width: 30%;
+    float: left;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+.twothird_sh{
+    width:  67%;
+    float: left;
+}
+.striped_sh{background-color:#f1f1f1}
+.table_sh td{
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+    font-size: 15px;
+}
+.bggray_sh{
+    background-color: #f1f1f1!important;
+}
+.bgwhite_sh{
+    background-color: white;
+} 
+.table_sh{
+    padding-left: 10px;
+    border-collapse:collapse;
+    border-spacing:0;
+    width:80%;
+    display:table;
+}
+marre_sh{
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    
+}
+.graybr_sh{
+   background-color:#c9c5c5!important;
+    padding-top: 0.01em;
+    padding-right: 10%;
+    padding-bottom: 0.01em;
+ 
+}
+.greenbr_sh{
+  background-color:#21c982!important;
+    padding-top: 0.01em;
+  
+padding-bottom: 0.01em;
+   
+}
+.orangbr_sh{
+  background-color:#deaa1b!important;
+    padding-top: 0.01em;
+  
+padding-bottom: 0.01em;
+   
+}
+.redbr_sh{
+  background-color:#ef3333!important;
+    padding-top: 0.01em;
+  
+padding-bottom: 0.01em;
+   
+}
+.hr_sh{
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 30px 0;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    display: block;
+    unicode-bidi: isolate;
+    
+}
+.img_sh{
+    width: 100%;
+}
+ .h4_sh{
+        margin-top: 480px;
+    }
+@media screen and (max-width: 600px) {
+    .third_sh,  .h4_sh{
+      float: none;
+        width:100%;
+  
+        margin-top: 300px;
+        }
+    }
+
+  
