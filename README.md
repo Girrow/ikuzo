@@ -2,8 +2,8 @@
 
 - 시작하면 git cmd 창에서 아래의 두개 본인것으로 바꾸어서 입력
  - 우선적으로 이 두개를 먼저 실행할 것
-   - `$ git config --global user.name "John Doe"`<br>
-   - `$ git config --global user.email johndoe@example.com`
+   - `$ git config --global user.name "harin"`<br>
+   - `$ git config --global user.email jeong@harin.dev`
 
 github 파일을 받겠다는 명령어 <기준 : 현재 github>
 
@@ -38,3 +38,5 @@ github 파일을 받겠다는 명령어 <기준 : 현재 github>
 <pre><code>$ git config --global core.autocrlf true</code></pre>
 #### conflict 났는데 해결 못할 시
 <pre><code>본인이 한 부분 따로 저장하고 폴더채로 날려버리고 git clone부터 다시 실행</code></pre>
+#### ikuzo_2에는 왜 push가 안되는지
+<pre><code> 아직 권한 안드림</code></pre>
