@@ -1,0 +1,61 @@
+        
+/*   이미지를 위한 css   */
+        .wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+            background-color: beige;
+        }
+        
+        .cover {
+            position: relative;
+            overflow: hidden;
+            padding-top: 100%;
+        }
+
+        .cover-img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            /*            max-width: 0%;*/
+        }
+
+        img {
+            max-width: 100%;
+        }
+        
+/*   정렬     */
+        .left{
+            float: left;
+        }
+        
+        .right{
+            float: right;
+        }
+        
+        .center{
+            text-align: center;
+        }
+        
+        .clear{
+            clear: both;
+        }
+        
+        .delm4{
+            margin-right: -4px;
+        }
+        
+/*   width값 조절     */
+        .quarter{
+            width: 24.99%
+        }
+        
+        .half{
+            width: 49.99%;
+        }
+        
+        .third{
+            width: 33.33%;
+        }
