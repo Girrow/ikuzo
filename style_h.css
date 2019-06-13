@@ -1,11 +1,10 @@
-        
 /*   이미지를 위한 css   */
         .wrapper {
             max-width: 980px;
             margin: 0 auto;
             background-color: beige;
         }
-        
+
         .cover {
             position: relative;
             overflow: hidden;
@@ -19,43 +18,76 @@
             top: 0;
             bottom: 0;
             margin: auto;
-            /*            max-width: 0%;*/
         }
 
         img {
             max-width: 100%;
         }
-        
+
 /*   정렬     */
-        .left{
+        .left {
             float: left;
         }
-        
-        .right{
+
+        .right {
             float: right;
         }
-        
-        .center{
+
+        .center {
             text-align: center;
         }
-        
-        .clear{
+
+        .clear {
             clear: both;
         }
-        
-        .delm4{
+
+        .delm4 {
             margin-right: -4px;
         }
-        
+
 /*   width값 조절     */
-        .quarter{
+        .quarter {
             width: 24.99%
         }
-        
-        .half{
+
+        .half {
             width: 49.99%;
         }
-        
-        .third{
+
+        .third {
             width: 33.33%;
+        }
+
+/*  input 값 받을 폼     */
+
+        .button {
+            border: none;
+            display: inline-block;
+            padding: 8px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            background-color: inherit;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+            background-color: black;
+            color: white;
+        }
+
+        .section {
+            margin-top: 16px !important;
+            margin-bottom: 16px !important;
+        }
+
+        .pack_hr::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .text {
+            width: 100%;
+            padding: 8px;
         }

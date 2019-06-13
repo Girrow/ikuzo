@@ -8,61 +8,32 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
         html,body{
-/*            margin: 0;*/
+            margin: 0;
             padding: 0;
             font-size: 15px;;
-            box-sizing: border-box;
         }
-        div{
-            box-sizing: border-box;
-        }
-        .button {
-            border: none;
-            display: inline-block;
-            padding: 8px 16px;
-            vertical-align: middle;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            background-color: inherit;
-            text-align: center;
-            cursor: pointer;
-            white-space: nowrap;
-            background-color: black;
-            color: white;
-        }
-
-        .section {
-            margin-top: 16px !important;
-            margin-bottom: 16px !important;
-        }
-        .pad_hr::after{
-            content:"";display:table;clear:both;    
-        }
-        
     </style>
 </head>
 
 <body>
-    <!--    <div class="half">-->
+<!--        <div class="half">-->
     <form action="/action_page.php" target="_blank">
-        <div class="pad_hr" style="margin:0px -16px 8px -16px;padding:0 8px;">
+        <div class="pack_hr" style="margin:0px -16px 8px -16px;padding:0 8px;">
             <div class="half left" style="padding:0 8px;">
-                <input type="text" placeholder="Name" required="" name="Name" style="width:100%;padding:8px;">
+                <input class="text" type="text" placeholder="Name" required="" name="Name">
                 
             </div>
             <div class="half left" style="padding:0 8px;">
-                <input type="text" placeholder="Email" required="" name="Email" style="width: 100%;padding:8px;">
+                <input class="text" type="text" placeholder="Email" required="" name="Email">
             </div>
         </div>
-        <input type="text" placeholder="Message" required="" name="Message" style="width: 100%;padding:8px;">
+        <input class="text" type="text" placeholder="Message" required="" name="Message">
         <button class="right button section" type="submit">
             <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
     </form>
-    <div class="clear"></div>
 
-    <!--    </div>-->
+<!--        </div>-->
 </body>
 
 </html>
