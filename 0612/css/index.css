@@ -30,7 +30,7 @@
     /*    height: auto;
     고정값을 줘야함*/
     width: 100%;
-    height: 1700px;
+    height: 1300px;
 }
 .section iframe.sanghyeok{
     /*    height: auto;
@@ -67,7 +67,7 @@
 
 @media screen and (max-width:600px) {
     .section iframe.harin{
-        height: 2200px;
+        height: 2100px;
     }
     .section iframe.daehwan{
         height: 1300px;
