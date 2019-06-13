@@ -4,17 +4,17 @@
 ======
 
 
->우선적으로 이 두개를 먼저 실행할 것
+우선적으로 이 두개를 먼저 실행할 것
+`$ git config --global user.name "John Doe"`
 
->>$ git config --global user.name "John Doe"
-
->>$ git config --global user.email johndoe@example.com
+`$ git config --global user.email johndoe@example.com`
 
 **github 파일을 받겠다는 명령어 <기준 : 현재 github>
 
 그냥 따라하면 되는 순서
-0. 아직 디렉토리가 구성되지 않았을 시 >>
-0-1. $ git clone https://github.com/girrow/ikuzo  <파일 다운로드>
+
+0. 아직 디렉토리가 구성되지 않았을 시 내가 원하는 폴더 디렉토리로 우선적으로 이동<br>
+0-1. $ git clone https://github.com/girrow/ikuzo 파일 다운로드 
 
 ---
 반복 구간
