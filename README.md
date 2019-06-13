@@ -5,21 +5,21 @@
    - `$ git config --global user.name "John Doe"`<br>
    - `$ git config --global user.email johndoe@example.com`
 
-**github 파일을 받겠다는 명령어 <기준 : 현재 github>
+github 파일을 받겠다는 명령어 <기준 : 현재 github>
 
 그냥 따라하면 되는 순서
 
-0. 아직 디렉토리가 구성되지 않았을 시 내가 원하는 폴더 디렉토리로 우선적으로 이동<br>
-0-1. $ git clone https://github.com/girrow/ikuzo 파일 다운로드 
+- 아직 디렉토리가 구성되지 않았을 시 내가 원하는 폴더 디렉토리로 우선적으로 이동<br>
+  - $ git clone https://github.com/girrow/ikuzo 파일 다운로드 
 
 ---
 반복 구간
 ---
-### 1.git pull <무조건 항상 파일을 수정하고 add,commit 전에 해야할 것>
-2. 내 이름의 파일을 수정 및 삽입
-3. $ git add . <내가 수정한 파일 추가 (깃허브 서버가 아닌 내 컴퓨터 가상 공간에 )>
-4. $ git commit -m "수정커밋 내용" <add로 파일 추가한 내용을 커밋으로 메세지 지정>
-5. $ git push
+- ### 1.git pull <무조건 항상 파일을 수정하고 add,commit 전에 해야할 것>
+- 2. 내 이름의 파일을 수정 및 삽입
+- 3. $ git add . <내가 수정한 파일 추가 (깃허브 서버가 아닌 내 컴퓨터 가상 공간에 )>
+- 4. $ git commit -m "수정커밋 내용" <add로 파일 추가한 내용을 커밋으로 메세지 지정>
+- 5. $ git push
 
 *** conflict 오류가 났을 시 :wq를 통해서 에디터 폴더 나와서 강제로 합치기
 
