@@ -27,7 +27,7 @@ github 파일을 받겠다는 명령어 <기준 : 현재 github>
 | 넣을 값 | 의미 | 기본값 |
 |:---:|:---:|:---:|
 | `$ git pull` | 깃허브 서버에 변경사항이 있을 경우 변경사항을 내 레파지토리에 적용 | `git pull` |
-| `$ git add .` | 내가 변경한 파일을 워킹디렉토리에 선정 | .을 사용시 전체 <br> `git add .` or `git add abc.txt` |
+| `$ git add .` | 내가 변경한 파일을 워킹디렉토리에 선정 | .을 사용시 전체 <br> `git add .` or<br> `git add abc.txt` |
 | `$ git commit -m ""` | 커밋 메세지를 적어서 add 넣은 파일들 메세지 설정 | `git commit -m "김수민 수정"` |
 | `$ git push` | add , commit 한 파일들을 깃허브 서버에 전송하여 수정 | `git push` |
 
@@ -36,4 +36,5 @@ github 파일을 받겠다는 명령어 <기준 : 현재 github>
 
 #### CRLF 오류날 시
 <pre><code>$ git config --global core.autocrlf true</code></pre>
-
+#### conflict 났는데 해결 못할 시
+<pre><code>본인이 한 부분 따로 저장하고 폴더채로 날려버리고 git clone부터 다시 실행</code></pre>
