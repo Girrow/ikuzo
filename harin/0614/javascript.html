@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS</title>
+        <script>
+            function Ev(){                document.getElementsByTagName("body")[0].style.backgroundColor = "red";
+            }            
+            function AA(e){
+                e();
+            }
+        </script>
+    </head>
+    <body onload="AA(Ev)"></body>
+</html>

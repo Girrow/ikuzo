@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQuery</title>
+    <link rel="stylesheet" href="./js2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    
+    
+    <script>
+        $(document).ready(function() {
+
+        });
+        var x = 9;
+        var y = 6;
+        var bx = 9;
+        var by = 6;
+        var footPrint = 0;
+        var hp = 5;
+        var win=0;
+        var lose=0;
+
+        /* 
+        0 : 갈수 있는 곳
+        1 : 벽
+        2 : 초기값으로 돌아갈 곳
+        3 : 튕겨 나갈 곳
+        이동거리
+        체력 5개
+        가서 했으면 성공
+        */
+        var map = [
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1],
+            [1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1],
+            [1, 0, 0, 1, 1, 0, 3, 3, 0, 1, 1],
+            [1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1],
+            [1, 1, 0, 3, 0, 0, 1, 1, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        ];
+
+        function inputCheck(input) {
+            switch (input) {
+                case 37:
+                    x--;
+                    break;
+                case 38:
+                    y--;
+                    break;
+                case 39:
+                    x++;
+                    break;
+                case 40:
+                    y++;
+                    break;
+                default:
+                    console.log("방향키 이외의 값이 들어왔습니다.");
+                    break;
+            }
+        }
+
+        function moveResult() {
+            if (map[y][x] === 2) {
+                x = 9;
+                y = 6;
+                bx = 9;
+                by = 6;
+                win++;
+                document.getElementById("logo").style.display="inline-block";
+                document.getElementById("logo").innerHTML="완주 !";
+                document.getElementById("logo").style.backgroundColor="#ff7675";
+                setTimeout(function(){  
+                          document.getElementById("logo").style.display="none"           
+                                     },500);
+                footPrint=0;
+            } else if (map[y][x] === 1) {
+                x = bx;
+                y = by;
+            } else if (map[y][x] === 3) {
+                footPrint++;
+                hp--;
+                if (hp > 0) {
+                    setTimeout(function() {
+                        x = bx;
+                        y = by;
+                        draw();
+                    }, 29.99)
+                }
+            } else {
+                bx = x;
+                by = y;
+                footPrint++;
+            }
+        }
+
+        function draw() {
+            document.getElementsByClassName("mushroom")[0].style.transform =
+                "translateX(calc(50px * " + x + ")) translateY(calc(50px * " + y + "))";
+        }
+        
+        function checkDeath(){
+            
+            
+            switch(hp){
+                case 5:
+                    document.getElementsByTagName("i")[0].classList.replace('fa-battery-full','fa-battery-full')
+                    break;
+                case 4:
+                    document.getElementsByTagName("i")[0].classList.replace('fa-battery-full','fa-battery-three-quarters')
+                    break;
+                case 3:
+                    document.getElementsByTagName("i")[0].classList.replace('fa-battery-three-quarters','fa-battery-half')
+                    break;
+                case 2:
+                    document.getElementsByTagName("i")[0].classList.replace('fa-battery-half','fa-battery-quarter')
+                    break;
+                case 1:
+                    document.getElementsByTagName("i")[0].classList.replace('fa-battery-quarter','fa-battery-empty')
+                    break;
+                case 0:
+                    document.getElementsByTagName("i")[0].classList.replace('fa-battery-empty','fa-battery-full')
+                    break;
+                default :
+                    document.getElementsByTagName("i")[0].classList.replace('fa-times','fa-battery-full')
+                    break;
+            }
+            
+            if(hp<=0){
+                document.getElementById("logo").style.display="inline-block";
+                document.getElementById("logo").style.backgroundColor="#b2bec3";
+                document.getElementById("logo").innerHTML="으앙 주금";
+                setTimeout(function(){
+                          document.getElementById("logo").style.display="none"           
+                                     },500);
+                console.log("죽음");
+                hp=5;
+                x = 9;
+                y = 6;
+                bx = 9;
+                by = 6;
+                lose++;
+                footPrint=0;
+                draw();
+            }
+            document.getElementsByTagName("span")[0].innerHTML = '현재체력 : ' + hp;
+            document.getElementsByTagName("span")[1].innerHTML = '완주 : ' + win;
+            document.getElementsByTagName("span")[2].innerHTML = '죽은 횟수 : ' + lose;
+            document.getElementsByTagName("span")[3].innerHTML = '이동거리 : ' + footPrint;
+        }
+
+        //key 눌렸을 때
+        function onkeyDown() {
+            console.log("onKeyDown");
+            var keycode = event.keyCode;
+            inputCheck(keycode);
+            moveResult();
+            draw();
+            checkDeath();
+            
+        }
+    </script>
+</head>
+
+
+
+
+
+<body onkeydown="onkeyDown()">
+    <section>
+        <div class="mushroom"></div>
+        
+    </section>
+    <br>
+
+    <nav>
+        <i class="fa fa-battery-full"></i><span >현재체력 : 5</span>
+        <i class="fa fa-trophy"></i><span>완주 : 0</span>
+        <i class="fa fa-bed"></i><span>죽은 횟수 : 0</span>
+        <i class="fa fa-car"></i><span>이동거리 : 0</span>
+    </nav>
+    <div style="clear: both;"></div>
+    
+    <div id="logo">Win!</div>
+    
+</body>
+
+</html>

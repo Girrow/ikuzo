@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>            
+            $(document).ready(function(){
+                $("body").css("background-color", "red");
+                
+                for(var i = 0; i < 10; i++){
+                    $("body").off().on("click",function(){
+                        console.log("click");
+                    });
+                    console.log(i);
+                }                
+            });
+        </script>
+    </head>
+    <body style="height: 500px;"></body>
+</html>
