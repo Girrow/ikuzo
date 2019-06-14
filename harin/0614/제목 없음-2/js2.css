@@ -1,0 +1,18 @@
+html, body {
+    margin: 0;
+    overflow: hidden;
+}
+section {
+    background: url(./img/game.png) no-repeat;
+    background-size: contain;
+    width: calc(50px * 11);
+    height: calc(50px * 8);
+}
+div {
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn2jhPzDp271tP8GKcPmX44PP9NhbiiD0hs_OBTVPT0C7BrEMa) no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    transform: translateX(calc(50px * 9)) translateY(calc(50px * 6));
+}
