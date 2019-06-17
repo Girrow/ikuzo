@@ -10,70 +10,51 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
-        #userList li{
+        #userList li {
             cursor: pointer;
         }
-        #userList li:hover{
-            background-color: coral;
+
+        #userList li:hover {
+            background-color: yellow;
         }
-        .dn{
+
+        .dn {
             display: none;
         }
     </style>
     <script>
-        $(document).ready(function() {
+        $(function() {
+
+
+            var userList = [];
+
             function cssEvent(target, style) {
                 $(target).css(style);
             }
-
-            var userList = [];
-            var tagList = ["#usr", "#pwd"];
-            var index;
-            function selectUser(){
-                var html=""
-                if(localStorage.getItem("users")===null){
-                    html='<li class="list-group-item">사용자가 없습니다.</li>';
-                }else{
-                    userList=JSON.parse(localStorage.getItem("users"));   
-                    for(let i=0;i<userList.length;i++){
-                        html+='<li class="list-group-item">'+userList[i]["#usr"]+'</li>';
-                    }
-                }
-                $("#userList").empty().append(html);
-                
-                $("#userList li").click(function(){
-                    
-                    $("#add").addClass("dn");
-                    $("#update").removeClass("dn");
-                        
-                    console.log("앗흥");
-                    index = $("#userList li").index(this);
-//                    여기뭐임
-                    console.log(index,userList[index]);
-                    for (var i = 0; i < tagList.length; i++) {
-                        $(tagList[i]).val(userList[index][tagList[i]]);
-//                    $("#usr").val(userList[index]["#usr"]);
-//                    $("#pwd").val(userList[index]["#pwd"]);
-                    }
-                })
-
-            }
-            
+            //            위치 중요함
             selectUser();
-            
 
             $("form").submit(function(e) {
+
                 e.preventDefault();
+                /*submit버튼이 눌리면 원래 ?를 통해 값이 이동하는데
+                이를 막기 위해서 사용
+                */
 
                 var styleList = [{
                         "borderColor": "red"
                     },
                     {
-                        "borderColor": "rgb(204, 204, 204)"
+                        "borderColor": "rgb(204,204,204)"
                     }
                 ];
+                /*
+                값을 정리하기 위해서 styleList를 설정해놓음
+                */
 
-                
+                var tagList = ["#usr", "#pwd"];
+                /*태그 값 정렬
+                 */
                 var user = {};
                 for (var i = 0; i < tagList.length; i++) {
                     if ($(tagList[i]).val() == "") {
@@ -83,51 +64,66 @@
                     } else {
                         cssEvent(tagList[i], styleList[1]);
                         user[tagList[i]] = $(tagList[i]).val();
-                        $(tagList[i]).val("");
+                        //                        user 추가하는 곳
+                        //                        $(tagList[i]).val("");
                     }
                 }
 
-                //                for문이 돌아서 필요한 값들을 객체 형태로 받아 user에 전부 저장
-
-                console.log("2", user, user["#usr"]);
-                /*                   localStorage.setItem("lastname","Smith");
-                localStorage.setItem("key", "value");
-                localStorage.getItem("key");
-                localStorage.removeItem("key");
-                */
-                //                한번 돌때마다 userList의 length값을 받아 차례대로 저장
                 userList[userList.length] = user;
-
-                console.log(userList.length, userList);
-
                 localStorage.setItem("users", JSON.stringify(userList));
                 //JSON.parse("");
-                
-                
-                
-                selectUser();
 
+                selectUser();
                 return;
             });
-            
-            $("#update").click(function(){
+
+            function selectUser() {
+                var html = "";
+                if (localStorage.getItem("users") == null) {
+                    html = '<li class="list-group-item">사용자가 없습니다.</li>';
+                } else {
+                    userList = JSON.parse(localStorage.getItem("users"));
+                    for (let i = 0; i < userList.length; i++) {
+                        html += '<li class="list-group-item">' + userList[i]["#usr"] + '</li>';
+                    }
+                }
+                $("#userList").empty().append(html);
+
+                //                새로운 li들이 생겼으므로 값에 다시 click method를 붙여줌
+                $("#userList li").click(function() {
+
+                    $("#add").addClass("dn");
+                    $("#update").removeClass("dn");
+
+                    var index = $("#userList li").index(this);
+                    console.log(index, userList[index]);
+                    for (var i = 0; i < tagList.length; i++) {
+                        $(tagList[i]).val(userList[index][tagList[i]]);
+                    }
+                });
+            }
+
+            $("#update").click(function() {
                 console.log("update");
                 $("#update").addClass("dn");
                 $("#add").removeClass("dn");
-                
-//                $("#usr").val();
-//                $("#pwd").val();
+
+                //                $("#usr").val();
+                //                $("#pwd").val();
                 console.log(userList);
-                
-                userList.splice(index,1,{"#usr":$("#usr").val(),"#pwd":$("#pwd").val()});
-                
+
+                userList.splice(index, 1, {
+                    "#usr": $("#usr").val(),
+                    "#pwd": $("#pwd").val()
+                });
+
                 localStorage.setItem("users", JSON.stringify(userList));
                 selectUser();
-                
+
                 for (var i = 0; i < tagList.length; i++) {
                     $(tagList[i]).val("");
                 }
-                
+
             });
         });
     </script>
