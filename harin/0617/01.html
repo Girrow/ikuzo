@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JQuery</title>
+    <link rel="stylesheet" href="./jq.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+
+
+        $(function() {
+            var x = 9;
+            var y = 6;
+            $("body").keydown(function(e) {
+                switch (e.keyCode) {
+                    case 37:
+                        x--;
+                        break;
+                    case 38:
+                        y--;
+                        break;
+                    case 39:
+                        x++;
+                        break;
+                    case 40:
+                        y++;
+                        break;
+                    default:
+                        console.log("방향키 이외의 값이 들어왔습니다.");
+                        break;
+                };
+                
+                if(x<0){
+                    x=0;
+                }else if(x>10){
+                    x=10;
+                }
+                
+                if(y<0){
+                    y=0;
+                }else if(y>7){
+                    y=7;
+                }
+                
+                $("#user").css("transform","translateX(calc(50px * " + x + ")) translateY(calc(50px * " + y + "))");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <section>
+        <div id="user">
+        </div>
+    </section>
+</body>
+
+</html>

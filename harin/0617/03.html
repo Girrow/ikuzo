@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            function cssEvent(target, style) {
+                $(target).css(style);
+            }
+
+            var userList = [];
+
+            $("form").submit(function(e) {
+                e.preventDefault();
+
+                var styleList = [{
+                        "borderColor": "red"
+                    },
+                    {
+                        "borderColor": "rgb(204, 204, 204)"
+                    }
+                ];
+
+                var tagList = ["#usr", "#pwd"];
+                var user={};
+                for (var i = 0; i < tagList.length; i++) {
+                    if ($(tagList[i]).val() == "") {
+                        alert(tagList[i] + " 없음!");
+                        cssEvent(tagList[i], styleList[0]);
+                        return;
+                    } else {
+                        cssEvent(tagList[i], styleList[1]);
+                        user[tagList[i]] = $(tagList[i]).val();
+                    }
+                }
+                
+//                for문이 돌아서 필요한 값들을 객체 형태로 받아 user에 전부 저장
+                
+                console.log("2",user,user["#usr"]);
+                /*                   localStorage.setItem("lastname","Smith");
+                localStorage.setItem("key", "value");
+                localStorage.getItem("key");
+                localStorage.removeItem("key");
+                */
+//                한번 돌때마다 userList의 length값을 받아 차례대로 저장
+                userList[userList.length]=user;
+                
+                console.log(userList.length,userList);
+                
+                localStorage.setItem("users",JSON.stringify(userList));
+                //JSON.parse("");
+                
+                return;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="usr" value="">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd">
+            </div>
+            <button type="submit" class="btn btn-success">Success</button>
+        </form>
+    </div>
+</body>
+
+</html>
