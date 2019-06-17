@@ -27,13 +27,13 @@
 
 
             var userList = [];
-
+            var index;
             function cssEvent(target, style) {
                 $(target).css(style);
             }
             //            위치 중요함
             selectUser();
-
+            var tagList = ["#usr", "#pwd"];
             $("form").submit(function(e) {
 
                 e.preventDefault();
@@ -52,7 +52,7 @@
                 값을 정리하기 위해서 styleList를 설정해놓음
                 */
 
-                var tagList = ["#usr", "#pwd"];
+                
                 /*태그 값 정렬
                  */
                 var user = {};
@@ -95,7 +95,7 @@
                     $("#add").addClass("dn");
                     $("#update").removeClass("dn");
 
-                    var index = $("#userList li").index(this);
+                    index = $("#userList li").index(this);
                     console.log(index, userList[index]);
                     for (var i = 0; i < tagList.length; i++) {
                         $(tagList[i]).val(userList[index][tagList[i]]);
@@ -113,8 +113,8 @@
                 console.log(userList);
 
                 userList.splice(index, 1, {
-                    "#usr": $("#usr").val(),
-                    "#pwd": $("#pwd").val()
+                "#usr": $("#usr").val(),
+                "#pwd": $("#pwd").val()
                 });
 
                 localStorage.setItem("users", JSON.stringify(userList));
