@@ -1,0 +1,6 @@
+html, body {margin: 0; padding: 0;}
+ul {text-decoration: none; padding: 0;}
+li {width: calc((100% / 3) - 20px ); margin: 0 10px; display: inline-block; float: left; text-align: center; background-color: aqua; padding: 10px 0;}
+li:hover {cursor: pointer; color: red;font-weight: bold;}
+ul::after {content: ""; display: table; clear: both;}
+h1 {text-align: center;}
