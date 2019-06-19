@@ -31,36 +31,128 @@
                 var params = param.split("&");
                 //console.log(params);
                 var row = {};
-                for (var i = 0; i < params.length; i++){
+                for (var i = 0; i < params.length; i++) {
                     var map = params[i].split("=");
                     //console.log(map);
-                    row[map[0]] = decodeURI(map[1]);
+                    row[map[0]] = map[1];
                 }
                 //console.log(row);
-                //                var list = [];
+                var list = [];
 
-                if (localStorage.getItem("list") != null){
+                if (localStorage.getItem("list") != null) {
                     list = JSON.parse(localStorage.getItem("list"));
                     console.log("여기");
                 }
 
-                list[list.length]=row;
+                list[list.length] = row;
                 localStorage.setItem("list", JSON.stringify(list));
                 //                    location.search = "";
-                for (let i = 0; i < list.length; i++) {
-                    html += "타이틀: " + list[i].title + ",컨텐츠: " + list[i].contents + "<br>";
-                    console.log("들어오긴했니");
-                }
-                $("section").empty().append(html);
+                //                for (let i = 0; i < list.length; i++) {
+                //                    if(list[i].delYn!="Y"){
+                //                        html += "타이틀: " + list[i].title + ",컨텐츠: " + list[i].contents + "<br>";    
+                //                    }else{
+                //                        
+                //                    }
+                //                    
+                //                }
+                //                $("section").empty().append(html);
             } else {
-                for (let i = 0; i < list.length; i++) {
-                    html += "<a href='#'>타이틀: " + list[i].title + ",컨텐츠: " + list[i].contents + "</a><br>";
-                    console.log("들어오긴했니");
+                if (localStorage.getItem("list") != null) {
+                    list = JSON.parse(localStorage.getItem("list"));
+                    console.log("여기2");
                 }
-                $("section").empty().append(html);
+
             }
-            
-            
+            //2번 기능
+            $("#listView").click(function() {
+                //                console.log("눌려써용");
+                html = "<ul>";
+                for (let i = 0; i < list.length; i++) {
+                    if (list[i].delYn != "Y") {
+                        html += "<li>타이틀: " + list[i].title + ",컨텐츠: " + list[i].contents + "</li><br>";
+                    } else {
+                        html += "<li class='dn'>타이틀: " + list[i].title + ",컨텐츠: " + list[i].contents + "</li><br>";
+                    }
+                    console.log("제발 여기로 들어와");
+                }
+                html += "</ul>";
+
+
+                $("section").empty().append(html);
+                select();
+                $("#listView").addClass("dn");
+                $("#listViewC").removeClass("dn");
+            })
+
+            $("#listViewC").click(function() {
+                $("#listView").removeClass("dn");
+                $("#listViewC").addClass("dn");
+                $("section").empty();
+            });
+
+            //3번 기능 4  5 
+            function select() {
+                $("section ul li").click(function() {
+                    console.log("눌림?");
+                    var index = $("section ul li").index(this);
+                    console.log(index);
+
+                    html = "<div>";
+                    html += "제목 : " + list[index].title;
+                    html += "<br>내용 : " + list[index].contents + "</div>";
+                    html += "<ul><li id='update'>수정하기</li></ul>";
+                    html += "<ul><li id='delete'>삭제하기</li></ul>";
+                    html += "<ul><li id='back'>돌아가기</li></ul>";
+                    $("section").empty().append(html);
+
+                    $("#update").click(function() {
+                        html = "<h1>글 수정하기 화면</h1>";
+                        html += '<form method="get" action="test.html">';
+                        html += '   <input id="uTitle" type="text" name="title" value="' + list[index].title + '">';
+                        html += '  <input id="uContents" type="text" name="contents" value="' + list[index].contents + '">';
+                        html += ' <input type="hidden" name="delYn" value="N">';
+                        html += '<input type="submit" value="저장">';
+                        html += '</form>';
+                        $("section").empty().append(html);
+
+                        $("form").submit(function(e) {
+                            e.preventDefault();
+                            console.log("성공적으로 막음");
+                            list[index].title = $("#uTitle").val();
+                            console.log("val=" + $("#uTitle").val() + " list-val:" + list[index].title);
+                            list[index].contents = $("#uContents").val();
+                            localStorage.setItem("list", JSON.stringify(list));
+                            $("#listView").trigger("click");
+                        })
+                    });
+                    $("#delete").click(function() {
+                        console.log(list[index].delYn + "index = " + index);
+                        list[index].delYn = "Y";
+                        localStorage.setItem("list", JSON.stringify(list));
+                    });
+                    $("#back").click(function() {
+                        $("#listView").trigger("click");
+                    });
+                });
+            }
+
+
+            $("#searchB").click(function(e) {
+                e.preventDefault();
+                var sText = $("#searchT").val()
+                console.log(sText);
+                html = "<ul>"
+                for (let i = 0; i < list.length; i++) {
+                    if (list[i].title.indexOf(sText) == 0) {
+                         html += "<li> 타이틀: " + list[i].title + ",컨텐츠: " + list[i].contents + "</li><br>";
+                    }
+                }
+                html += "</ul>";
+
+
+                $("section").empty().append(html);
+            })
+
 
             $("li").click(function() {});
         });
@@ -70,13 +162,18 @@
 <body>
     <nav>
         <ul>
-            <li>목록</li>
+            <li id="listView">목록</li>
+            <li id="listViewC" class="dn">목록 닫기</li>
             <li><a href="test2.html">신규</a></li>
         </ul>
     </nav>
+    <div>검색하기
+        <input id="searchT" type="text" placeholder="검색어 입력">
+        <button id="searchB" type="button">검색</button>
+    </div>
     <section class="contents">
-        
-
+        <ul>
+        </ul>
     </section>
     <footer></footer>
 </body>
