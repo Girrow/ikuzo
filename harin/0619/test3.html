@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SPA</title>
+        <link rel="stylesheet" href="test.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <style>
+            form input[type=text]{
+                font-size: 200px;
+            }
+        </style>
+        <script>
+            /***********************************************************
+             * 게시판 만들기
+             * - 기능 정의 (5가지) + α
+             * 1) 작성하기    : 사용자에게 입력값을 받은 후 저장소에 남기기
+             * 2) 목록보기    : 저장소에 있는 데이터를 목록으로 화면 표현하기
+             * 3) 자세히보기  : 목록 중에 하나의 글를 선택한 내용만 화면 표현하기
+             * 4) 수정하기    : 선택한 글의 내용을 수정하는 화면 표현하기 + 저장(1)
+             * 5) 삭제하기    : 선택한 글를 목록 내용에서 빼고 +저장(1)
+             * 6) 검색하기    : 목록 글에서 입력 받은 키워드를 찾아서 화면 표현하기
+             ***********************************************************/
+// localStorage.setItem('table', JSON.stringify([{"title":"오늘 날씨가 좋네요","contents":"가나다라"},{"title":"우다다다","contents":"가나다라마마마"}]));
+            $(function(){
+                
+                var html="";
+                var tableList=[];
+                
+                
+//                if(localStorage.getItem('table') == null){
+//                    console.log("값이 존재하지 않습니다.");
+//                    
+//                }else{
+//                    console.log("값이 존재합니다.")
+//                    tableList = JSON.parse(localStorage.getItem('table'));
+//                    console.log(tableList.length,"길이");
+//                    for(let i=0;i<tableList.length;i++){
+//                        html+="제목 : "+tableList[i].title+", 내용 : "+tableList[i].contents+"<br>";
+//                    }
+//                    $("section").empty().append(html);
+//                }
+                
+                if(location.search != ""){
+                    var qString=location.search;
+                    qString=qString.replace('?','{').replace('=',':').replace('=',':').replace('&',',')+"}";
+                    tableList[tableList.length]=qString;
+                    for(let i=0;i<tableList.length;i++){
+                        html+="제목 : "+tableList[i].title+", 내용 : "+tableList[i].contents+"<br>";
+                    }
+                    $("section").empty().append(html);
+                }else{
+                    console.log("값이 존재합니다.")
+                    tableList = JSON.parse(localStorage.getItem('table'));
+                    console.log(tableList.length,"길이");
+                    for(let i=0;i<tableList.length;i++){
+                        html+="제목 : "+tableList[i].title+", 내용 : "+tableList[i].contents+"<br>";
+                    }
+                    
+                    $("section").empty().append(html);
+                }
+                localStorage.setItem('table',JSON.stringify(tableList));
+                
+                $("#title").text(location.hash);
+            });
+        </script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>목록</li>
+                <a href="test2.html"><li>신규</li></a>
+            </ul>
+        </nav>
+        <section class="contents">
+            
+        </section>
+        <footer></footer>
+    </body>
+</html>

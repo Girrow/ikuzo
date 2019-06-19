@@ -35,12 +35,12 @@
                 var styleList=[{"borderColor":"red"},{"borderColor":"rgb(204,204,204)"}];
                 
                 var user={};
-                for (var i = 0; i < tagList.length; i++) {
+                for (var i = 0; i < tagList.length; i++){
                     if ($(tagList[i]).val() == "") {
                         alert(tagList[i] + " 없음!");
                         cssEvent(tagList[i], styleList[0]);
                         return;
-                    } else {
+                    }else {
                         cssEvent(tagList[i], styleList[1]);
                         user[tagList[i]] = $(tagList[i]).val();
                         $(tagList[i]).val("");

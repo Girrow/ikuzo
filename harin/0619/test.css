@@ -1,0 +1,12 @@
+html, body {margin: 0; padding: 0;}
+nav {position: fixed; width: 100%; top:0;}
+ul {text-decoration: none; padding: 0; width: 100%; position: absolute;}
+li {width: calc((100% / 2) - 20px ); margin: 0 10px; display: inline-block; float: left; text-align: center; background-color: aqua; padding: 10px 0;}
+li:hover {cursor: pointer; color: red;font-weight: bold;}
+ul::after {content: ""; display: table; clear: both;}
+h1 {text-align: center;}
+div {padding-top: 73px;}
+a {text-decoration: none;}
+
+.contents { height: calc(100vh - 170px); margin-top: 70px; }
+footer {height: 100px; background-color: dimgrey;}
