@@ -1,0 +1,195 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/*   이미지를 위한 css   */
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  /*            background-color: beige;*/
+}
+
+.cover {
+  position: relative;
+  overflow: hidden;
+  padding-top: 100%;
+}
+
+.cover-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*   정렬     */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.clear {
+  clear: both;
+}
+
+.delm4 {
+  margin-right: -4px;
+}
+
+/*   width값 조절     */
+.quarter {
+  width: 24.99%
+}
+
+.half {
+  width: 49.99%;
+}
+
+.third {
+  width: 33.33%;
+}
+
+/*  input 값 받을 폼     */
+.button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+}
+
+.section {
+  margin-top: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+.pack_hr::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.text {
+  width: 100%;
+  padding: 0px;
+  /* margin-top: 10px; */
+  padding-right: 0px;
+
+
+  font-size:0.6em;
+  margin-top: 0px;
+}
+
+/*  header, navigation*/
+.header1 {
+  background-color: cadetblue;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.nav1 {
+  background-color: darksalmon;
+  height: 50px;
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.nav1 a {
+  display: inline-block;
+  width: calc(25% - 0.3px);
+  box-sizing: border-box;
+  padding-top: 16.25px;
+  padding-bottom: 16.25px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0px !important;
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+}
+
+.header2 {
+  background-color: cadetblue;
+  width: 100px;
+  height: 100vh;
+  position: fixed;
+}
+
+.nav2 {
+  background-color: darksalmon;
+  height: 100vh;
+  width: 100px;
+  /*    margin-top: 50px;*/
+  text-align: center;
+}
+
+.nav2 a {
+  display: block;
+  margin-right: 0px;
+}
+
+.section1 {
+  max-width: 100%;
+  margin: auto;
+}
+
+/* footer */
+.footer1 {
+  background-color: aquamarine;
+  height: 100px;
+}
+
+/* 금요일 정렬 */
+.color1{
+  background-color:#fab1a0;
+}
+.color2{
+  background-color: #fdcb6e;
+}
+.color3{
+  background-color: #74b9ff;
+}
+.color4{
+  background-color: rgb(209, 215, 179);
+}
+.color5{
+  background-color: #786fa6;
+}
+
+ul li{
+  border: 1px solid black;
+  box-sizing: border-box;
+  font-size: 1.1em;
+  text-align: center;
+  /* margin:4px 0; */
+}
