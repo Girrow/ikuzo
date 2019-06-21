@@ -1,7 +1,7 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "description": "",
+  "description": "- 시작하면 git cmd 창에서 아래의 두개 본인것으로 바꾸어서 입력\r  - 우선적으로 이 두개를 먼저 실행할 것\r    - `$ git config --global user.name \"harin\"`<br>\r    - `$ git config --global user.email jeong@harin.dev`",
   "main": "app/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,5 +14,13 @@
     "moment": "^2.19.3",
     "winston": "^2.4.0",
     "winston-daily-rotate-file": "^1.7.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Girrow/ikuzo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Girrow/ikuzo/issues"
+  },
+  "homepage": "https://github.com/Girrow/ikuzo#readme"
 }
