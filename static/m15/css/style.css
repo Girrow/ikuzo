@@ -6,7 +6,7 @@ html, body {
 /*   이미지를 위한 css   */
 .wrapper {
   max-width: 980px;
-  margin: 0 auto;
+  margin: 20px auto;
   /*            background-color: beige;*/
 }
 
@@ -186,10 +186,120 @@ ul {
   background-color: #786fa6;
 }
 
-ul li{
+.uul li{
   border: 1px solid black;
   box-sizing: border-box;
   font-size: 1.1em;
   text-align: center;
   /* margin:4px 0; */
+}
+
+/* navbar */
+
+body { margin: 0; }
+.navbar{
+  margin-bottom: 10px;
+}
+.navbar>ul {
+  background: rgb(224, 112, 104);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navbar>ul>li {
+  display: inline-block;
+  padding: 0;
+  border:none;
+}
+.navbar>ul>li>a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: white;
+}
+.navbar>ul>li>a:hover { background:rgb(119, 55, 107); }
+
+
+.footer{
+  margin-top: 10px;
+}
+.footer>ul{
+  text-align: center;
+  background: rgb(147, 133, 97);
+  margin: 0;
+  padding:0;
+  list-style: none;
+}
+
+.footer>ul>li{
+  display: inline-block;
+  padding: 0;
+  border:none;
+}
+
+.footer>ul>li>a {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: white;
+}
+
+.faqDiv{
+  margin:20px 0px;
+  max-width:600px;
+  min-width:600px;
+  display:inline-block;
+}
+/* searchBar */
+.green_window {
+	display: inline-block;
+	width: 366px; height: 34px;
+	border: 3px solid #2db400;
+	background: white;
+}
+.input_text {
+	width: 348px; height: 21px;
+	margin: 6px 0 0 9px;
+	border: 0;
+	line-height: 21px;
+	font-weight: bold;
+	font-size: 16px;
+	outline: none;
+}
+.sch_smit {
+	width: 54px; height: 40px;
+	margin: 0; border: 0;
+	vertical-align: top;
+	background: #22B600;
+	color: white;
+	font-weight: bold;
+	border-radius: 1px;
+	cursor: pointer;
+}
+.sch_smit:hover {
+	background: #56C82C;
+}
+
+.list_faq{
+  background: rgb(217, 108, 47);
+  margin-bottom: 10px;
+  display: block;
+}
+.list_faq>strong{
+  display:block;
+  padding:10px 0px;
+}
+.list_faq2{
+  display: block;
+  padding-top: 10px;
+  background: white;
+}
+.ul_faq{
+  border-top: 3px solid gray;
+  border-bottom: 3px solid gray;
+  box-sizing: border-box;
+}
+
+.ml{
+  margin-left:10px;
 }

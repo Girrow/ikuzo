@@ -10,27 +10,85 @@
 </head>
 
 <body>
-  <div style='text-aligh:center;'>관리자 문의 리스트 조회</div>
-  <div class="wrapper">
-    <div class="center color1">
 
-      <div class="color2" style="margin:20px 0px;;max-width:500px;min-width:500px;display:inline-block;">
-        <h3 class="clear left"><span>Q1:&nbsp</span>손님이 갑인가요?</h3>
-        <p class="clear left">갑갑하다 따랑따랑</p>
-      </div>
-      <div class="color2" style="margin:20px 0px;;max-width:500px;min-width:500px;display:inline-block;">
-        <h3 class="clear left"><span>Q2:&nbsp</span>피땀눈물?</h3>
-        <p class="clear left">내 마지막 춤을 다  따랑따랑</p>
-      </div>
-      <div class="color2" style="margin:20px 0px;;max-width:500px;min-width:500px;display:inline-block;">
+  <nav class="navbar">
+    <ul class="uul">
+      <li><a href="#">자주하는 질문들</a></li>
+      <li><a href="#">1:1 문의하기</a></li>
+      <li><a href="#">1:1 문의내역</a></li>
+      <li><a href="#">전자세금계산서</a></li>
+    </ul>
+  </nav>
 
-        <h3 class="clear left"><span>Q3:&nbsp</span>왕이 서두르면?</h3>
-        <img src="./img/king.jpg" alt="">
-        <p class="clear left">우왕좌왕</p>
-      </div>
+  <div style="text-align: center;">
+    <span class='green_window'>
+      <input id="searchT" type='text' class='input_text' />
+    </span>
+    <button id="searchB" type="button" class='sch_smit'>검색</button>
+  </div>
 
+  <div class="wrapper center">
+    <ul class="color4 ul_faq">
+      <li class="clear list_faq">
+        <strong class="ml" style="text-align:left"><span>Q</span>자사 제품 안내입니다.</strong>
+        <div class="color3">내용 - 히든값</div>
+        <ul class="list_faq2">
+          <li class="left">제품명 <span>제품제목</span></li>
+          <li class="left">날짜 <span>2019-9-</span></li>
+          <li class="left">조회 <span>330</span></li>
+          &nbsp
+        </ul>
+      </li>
+      <li class="clear list_faq">
+        <strong class="ml"><span>Q</span>자사 제품 안내입니다.</strong>
+        <ul class="list_faq2">
+          <li class="left">제품명 <span>제품제목/</span></li>
+          <li class="left">날짜 <span>2019-9-9/</span></li>
+          <li class="left">조회 <span>330/</span></li>
+          &nbsp
+        </ul>
+      </li>
+      <li class="clear list_faq">
+        <strong class="ml"><span>Q</span>자사 제품 안내입니다.</strong>
+        <ul class="list_faq2">
+          <li class="left">제품명 <span>제품제목/</span></li>
+          <li class="left">날짜 <span>2019-9-9/</span></li>
+          <li class="left">조회 <span>330/</span></li>
+          &nbsp
+        </ul>
+      </li>
+    </ul>
+    <!-- <div class="color5 half clear" style="border-radius:25px;display:inline-block">
+      <h2 class="left"><span class="color4">Q1:&nbsp</span>손님이 갑인가요?</h2>
+      <hr class="clear">
+      <p>갑갑하다 따랑따랑</p>
+      <p><button class="button">닫기</button></p>
+    </div> -->
+    <div class="color2 faqDiv">
+      <h3 class="clear left color4"><span>Q1:&nbsp</span>손님이 갑인가요?</h3>
+      <p class="clear left">갑갑하다 따랑따랑</p>
+    </div>
+    <div class="color2 faqDiv">
+      <h3 class="clear left"><span>Q2:&nbsp</span>피땀눈물?</h3>
+      <p class="clear left">내 마지막 춤을 다 따랑따랑</p>
+    </div>
+    <div class="color2 faqDiv">
+
+      <h3 class="clear left"><span>Q3:&nbsp</span>왕이 서두르면?</h3>
+      <img src="./img/king.jpg" alt="">
+      <p class="clear left">우왕좌왕</p>
     </div>
   </div>
+  <footer class="footer">
+    <ul>
+      <li><a href="/m15/faq.html">회사소개</a></li>
+      <li><a href="/m15/faq.html">이용약관</a></li>
+      <li><a href="/m15/faq.html">개인정보취급방침</a></li>
+      <li><a href="/m15/faq.html">청소년보호정책</a></li>
+      <li><a href="/m15/faq.html">고객센터</a></li>
+    </ul>
+    <address>&copy; <strong><a href="https://www.harin.dev/" target="_blank">harin</a></strong></address>
+  </footer>
 </body>
 
 </html>
