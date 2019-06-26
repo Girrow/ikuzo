@@ -186,13 +186,6 @@ ul {
   background-color: #786fa6;
 }
 
-.uul li{
-  border: 1px solid black;
-  box-sizing: border-box;
-  font-size: 1.1em;
-  text-align: center;
-  /* margin:4px 0; */
-}
 
 /* navbar */
 
@@ -235,6 +228,7 @@ body { margin: 0; }
   display: inline-block;
   padding: 0;
   border:none;
+  width: 15%;
 }
 
 .footer>ul>li>a {
@@ -303,3 +297,17 @@ body { margin: 0; }
 .ml{
   margin-left:10px;
 }
+
+.uul{
+  text-align: center;
+}
+.uul li{
+  display: inline-block;
+  border: 1px solid black;
+  box-sizing: border-box;
+  font-size: 1.1em;
+  text-align: center!important;
+  /* margin:4px 0; */
+}
+
+/* 여기서부터 다시 */
