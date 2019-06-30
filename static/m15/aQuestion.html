@@ -6,40 +6,182 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/util.css">
   <title>Document</title>
+  <script>
+  /* Set the width of the side navigation to 250px */
+function openNav() {
+document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+document.getElementById("mySidenav").style.width = "0";
+}
+  </script>
 </head>
 
 <body>
-  <div style='text-aligh:center;'>관리자 문의 리스트 조회</div>
-  <div class="wrapper">
-    <div>
-      <span style="background-color:rgb(145, 238, 100); border-radius:25px;">Filter :</span>
-      <span class="color1">ABC초콜릿</span>
-      <span class="color2">BC초콜릿</span>
-      <span class="color3">C초콜릿</span>
-    </div>
-    <div class="center color4">
+  <header>
+    <a href="http://localhost/m15/faq.html">
+      <img alt="goodee" src="../img/logo.png">
+    </a>
+    <ul class="uul">
+      <li class="nav_1">FaQ</li>
+      <li class="nav_1">사용자</li>
+      <li class="nav_1">관리자</li>
+      <li class="nav_1">전자세금계산서</li>
+    </ul>
+  </header>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">FaQ</a>
+    <a href="#">사용자</a>
+    <a href="#">관리자</a>
+    <a href="#">전자세금계산서</a>
+  </div>
 
-      <div class="color5" style="margin:20px 0px;;max-width:500px;min-width:500px;display:inline-block;">
-        <span class="color2 right">BC초콜릿</span>
-        <h3 class="clear left"><span>Q1:&nbsp</span>여기가 어디에요?</h3>
-        <p class="clear left">사용자의 질문이 이렇게 보입니다 따랑따랑</p>
-      </div>
-      <div class="color5" style="margin:20px 0px;;max-width:500px;min-width:500px;display:inline-block;">
-        <span class="color2 right">BC초콜릿</span>
-        <h3 class="clear left"><span>Q2:&nbsp</span>여기가 어디에요?</h3>
-        <p class="clear left">사용자의 질문이 이렇게 보입니다 따랑따랑</p>
-      </div>
-      <div class="color5" style="margin:20px 0px;;max-width:500px;min-width:500px;display:inline-block;">
-        <span class="color3 right">C초콜릿</span>
-        <span class="color2 right">BC초콜릿</span>
+  <!-- Use any element to open the sidenav -->
+  <span onclick="openNav()">open</span>
 
-        <h3 class="clear left"><span>Q3:&nbsp</span>여기가 어디에요?</h3>
-        <p class="clear left">사용자의 질문이 이렇게 보입니다 따랑따랑</p>
-      </div>
 
+  <div class="wrapper center">
+    <div class="limiter">
+      <div style="text-align: center;">
+        <span class='green_window'>
+          <input id="searchT" type='text' class='input_text' />
+        </span>
+        <button id="searchB" type="button" class='sch_smit'>검색</button>
+        <br>
+        <button class="button">1:1 다이렉트 문의</button>
+        <button class="button">작성하기</button>
+      </div>
+      <div class="container-table100">
+        <div class="w3-section w3-bottombar w3-padding-16">
+          <span class="w3-margin-right">Filter:</span>
+          <button class="w3-button w3-black">ALL</button>
+          <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+          <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+          <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
+        </div>
+        <div class="wrap-table100">
+          <div class="table">
+
+            <div class="row header">
+              <div class="cell">
+                제목
+              </div>
+              <div class="cell">
+                문의사항
+              </div>
+              <div class="cell">
+                아이디
+              </div>
+              <div class="cell">
+                작성일자
+              </div>
+              <div class="cell">
+                답변
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="cell" data-title="제목">
+                Q4. 어떻게 하죠?
+              </div>
+              <div class="cell" data-title="문의사항">
+                1:1 문의
+              </div>
+              <div class="cell" data-title="아이디">
+                admin
+              </div>
+              <div class="cell" data-title="작성일자">
+                2019-06-26-17:55
+              </div>
+              <div class="cell" data-title="답변" style="min-width:70px;">
+                N
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="cell" data-title="제목">
+                Q1. 어떻게 하죠?
+              </div>
+              <div class="cell" data-title="문의사항">
+                1:1 문의
+              </div>
+              <div class="cell" data-title="아이디">
+                admin
+              </div>
+              <div class="cell" data-title="작성일자">
+                2019-06-26-17:55
+              </div>
+              <div class="cell" data-title="답변">
+                N
+              </div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="제목">
+                Q2. 어떻게 하죠?
+              </div>
+              <div class="cell" data-title="문의사항">
+                상품 상세 질문
+              </div>
+              <div class="cell" data-title="아이디">
+                admin
+              </div>
+              <div class="cell" data-title="작성일자">
+                2019-06-26-17:55
+              </div>
+              <div class="cell" data-title="답변">
+                N
+              </div>
+            </div>
+            <div class="row">
+              <div class="cell" data-title="제목">
+                Q3. 어떻게 하죠?
+              </div>
+              <div class="cell" data-title="문의사항">
+                1:1 문의
+              </div>
+              <div class="cell" data-title="아이디">
+                admin
+              </div>
+              <div class="cell" data-title="작성일자">
+                2019-06-26-17:55
+              </div>
+              <div class="cell" data-title="답변">
+                N
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <footer>
+    <div class="sns-area">
+      <div class="sns-box">
+        <a href="http://goodaum.co.kr/" target="_blank" class="sns01">
+          <span class="hidden">블로그</span>
+        </a>
+        <a href="https://cafe.naver.com/itisgoodee" target="_blank" class="sns02">
+          <span class="hidden">카페</span>
+        </a>
+        <a href="https://www.instagram.com/it_edu_goodee/" target="_blank" class="sns03">
+          <span class="hidden">인스타그램</span>
+        </a>
+        <a href="https://www.facebook.com/goodee0205" target="_blank" class="sns04">
+          <span class="hidden">페이스북</span>
+        </a>
+      </div>
+      <div class="copy">Copyright ⓒ GooDee Academy. All rights reserved.</div>
+    </div>
+  </footer>
+
 </body>
 
 </html>

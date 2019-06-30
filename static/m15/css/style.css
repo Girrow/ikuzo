@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: rgb(245, 245, 251);
 }
 
 /*   이미지를 위한 css   */
@@ -27,6 +28,7 @@ html, body {
 
 img {
   max-width: 100%;
+
 }
 
 /*   정렬     */
@@ -71,13 +73,22 @@ img {
   vertical-align: middle;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
-  background-color: inherit;
+  color: #6A8476;
+  background-color: #6A8476;
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
-  background-color: black;
   color: white;
+  margin: 10px 10px;
+}
+
+.button:hover{
+  background-color: rgb(109, 207, 102);
+}
+
+.button_2{
+   text-align:center;
+   color:white;
 }
 
 .section {
@@ -248,7 +259,7 @@ body { margin: 0; }
 .green_window {
 	display: inline-block;
 	width: 366px; height: 34px;
-	border: 3px solid #2db400;
+	border: 3px solid #6A8476;
 	background: white;
 }
 .input_text {
@@ -264,14 +275,14 @@ body { margin: 0; }
 	width: 54px; height: 40px;
 	margin: 0; border: 0;
 	vertical-align: top;
-	background: #22B600;
+	background: #6A8476;
 	color: white;
 	font-weight: bold;
 	border-radius: 1px;
 	cursor: pointer;
 }
 .sch_smit:hover {
-	background: #56C82C;
+	background: #57be87;
 }
 
 .list_faq{
@@ -299,6 +310,7 @@ body { margin: 0; }
 }
 
 .uul{
+  padding-top: 40px;
   text-align: center;
 }
 .uul li{
@@ -307,7 +319,243 @@ body { margin: 0; }
   box-sizing: border-box;
   font-size: 1.1em;
   text-align: center!important;
+  width: 24%;
+  max-width: calc(960px / 4);
   /* margin:4px 0; */
 }
 
+
+
 /* 여기서부터 다시 */
+header {padding: 30px 0; text-align: center; background-color: #6a8476;}
+header img {height: 46px;}
+header>ul>li{
+  color: white;
+}
+footer {height: 210px; text-align: center; background-color: #434b58; color: white;}
+.sns-area, .sns-box {padding: 30px 0;}
+.sns-box a {text-decoration: none; color: white; padding: 0 15px;}
+.sns-box a:hover {color: #72af2c;}
+
+.nav_1{
+  padding:10px 0;
+  border: none!important;
+  background-color: rgb(129, 180, 226);
+  border-radius: 10px;
+}
+
+.nav_1:hover{
+  cursor: pointer;
+  background-color: rgb(84, 162, 143);
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.wrapper>h2{
+  padding-left: 20px;
+  font-size: 1.5em;
+}
+
+.accordion {
+  width: 80%;
+  background-color: #a2b696;
+  color: #444;
+  cursor: pointer;
+  padding:10px;
+  /* width: 100%; */
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin:10px 0px;
+  min-height: 80px;
+}
+
+.active, .accordion:hover {
+  background-color: #b8cdb5;
+}
+
+.panel {
+  text-align: left;
+  padding: 0 18px;
+  background-color: rgb(218, 216, 207);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.inp_ul{
+  background-color: rgb(209, 193, 203);
+}
+
+.inp_ul>li{
+  display: inline-block;
+  width: calc(100% / 7);
+  font-size: 0.5em;
+  margin-right: -4px;
+    border-right:1px solid black;
+  box-sizing: border-box;
+  text-align: center
+}
+.inp_ul>li>input{
+    padding: 10px 0px!important;
+    display: inline;
+}
+.inp_ul>li:nth-child(1){
+  width: calc(100% / 40);
+  margin-left: 2%;
+}
+.inp_ul>li:nth-child(2){
+  width: calc(100% / 40);
+}
+.inp_ul>li:nth-child(4){
+  width: calc(100% / 30);
+}
+.inp_ul>li:nth-child(5){
+  width: calc(100% / 30);
+}
+.inp_ul>li:nth-child(7){
+  width: calc(100% / 20);
+  border: none;
+}
+.inp_ul>li:nth-child(11){
+  width: calc(100% / 20);
+  border: none;
+}
+.inp_ul>li:nth-child(7){
+  /* display: none; */
+  border-right: 1px solid black;
+}
+.inp_re>li:nth-child(8){
+  display: none;
+}
+.inp_re>li:nth-child(9){
+display: none;
+}
+.inp_re>li:nth-child(10){
+display: none;
+}
+.inp_re>li:nth-child(11){
+display: none;
+}
+.inp_ul>li:nth-child(15){
+  width: calc(100% / 20);
+  border: none;
+}
+.bgwhite{
+  position: relative;
+}
+.radio,.radio>div{
+  font-size: 0.8em;
+  border: none;
+  font-weight: bold;
+}
+
+
+@media screen and (max-width:768px){
+  .radio{
+    width: 100%;
+    text-align: center;
+  }
+  .bgwhite{
+    min-height: 150px;
+  }
+  .inp_ul>li{
+    display: inline-block;
+    width: calc(100% / 4);
+    font-size: 0.5em;
+    margin-right: -4px;
+    border-right:1px solid black;
+    box-sizing: border-box;
+  }
+  .inp_ul>li>input{
+      padding: 10px 0px!important;
+      display: inline;
+  }
+  .inp_ul>li:nth-child(1){
+    width: calc(100% / 20);
+    margin-bottom: 20px;
+    margin-left: 8%;
+  }
+  .inp_ul>li:nth-child(2){
+    width: calc(100% / 20);
+  }
+  .inp_ul>li:nth-child(4){
+    width: calc(100% / 15);
+  }
+  .inp_ul>li:nth-child(5){
+    width: calc(100% / 15);
+  }
+  .inp_ul>li:nth-child(7){
+    width: calc(100% / 9);
+    border: none;
+  }
+  .inp_ul>li:nth-child(8){
+    margin-left: 8%;
+  }
+  .inp_ul>li:nth-child(11){
+    width: calc(100% / 10);
+    border: none;
+  }
+  .inp_ul>li:nth-child(15){
+    width: calc(100% / 10);
+    border: none;
+  }
+  .inp_re{
+    position: absolute;
+    top: 30px;
+    left:0;
+  }
+  .inp_re>li:nth-child(8){
+    display: inline-block;
+  }
+  .inp_re>li:nth-child(9){
+    display: inline-block;
+  }
+  .inp_re>li:nth-child(10){
+    display: inline-block;
+  }
+  .inp_re>li:nth-child(11){
+    display: inline-block;
+  }
+  .inp_re>li:nth-child(12){
+    display: inline-block;
+    margin-left: 8%;
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "description": "- 시작하면 git cmd 창에서 아래의 두개 본인것으로 바꾸어서 입력\r  - 우선적으로 이 두개를 먼저 실행할 것\r    - `$ git config --global user.name \"harin\"`<br>\r    - `$ git config --global user.email jeong@harin.dev`",
+  "description": "",
   "main": "app/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,18 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "express-error-handler": "^1.1.0",
+    "express-session": "^1.16.2",
+    "mariadb": "^2.0.5",
     "moment": "^2.19.3",
     "pm2": "^3.5.1",
     "winston": "^2.4.0",
     "winston-daily-rotate-file": "^1.7.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Girrow/ikuzo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Girrow/ikuzo/issues"
-  },
-  "homepage": "https://github.com/Girrow/ikuzo#readme"
+  }
 }

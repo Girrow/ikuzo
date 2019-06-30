@@ -6,34 +6,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/util.css">
   <title>Document</title>
+  <style media="screen">
+    body {
+      background-color: rgb(191, 191, 193);
+    }
+  </style>
 </head>
 
 <body>
-  <div style='text-aligh:center;'>관리자 문의 리스트 조회</div>
+  <header>
+    <a href="http://localhost/m15/faq.html">
+      <img alt="goodee" src="../img/logo.png">
+    </a>
+    <ul class="uul">
+      <li class="nav_1">FaQ</li>
+      <li class="nav_1">사용자</li>
+      <li class="nav_1">관리자</li>
+      <li class="nav_1">전자세금계산서</li>
+    </ul>
+  </header>
   <div class="wrapper">
-    <div>
-      <span style="background-color:rgb(145, 238, 100); border-radius:25px;">Filter :</span>
-      <span class="color1">ABC초콜릿</span>
-      <span class="color2">BC초콜릿</span>
-      <span class="color3">C초콜릿</span>
-    </div>
-    <div class="center color4">
+    <div class="center p-b-10" style="background-color:white;">
 
-      <div class="color5" style="margin:20px 0px;;max-width:500px;min-width:500px;display:inline-block;min-height:500px;">
-        <span class="color2 right">BC초콜릿</span>
-        <h3 class="clear left"><span>Q1:&nbsp</span>여기가 어디에요?</h3>
-        <p class="clear left">사용자의 질문이 이렇게 보입니다 따랑따랑</p>
+      <div style="Height:30px;">
+        <span class="color3  m-l-10 m-r-10 p-l-10 p-r-10 button right" style="margin-bottom:0">삭제</span>
+        <span class="color1  m-l-10 m-r-10 p-l-10 p-r-10 button right" style="margin-bottom:0">수정</span>
+        <span class="color2 button m-l-10 m-r-10 p-l-10 p-r-10 right" style="margin-bottom:0">목록</span>
+
       </div>
+      <br>
+      <div class="clear" style="margin:20px 20px;min-width:526px;display:block;min-height:400px;border:1px solid black">
+        <h3 style="text-align:left;padding-left:20px;">
+          <span class="color4">Q&nbsp:&nbsp</span>
+        1:1 문의 체크 1 2 1 2</h3>
+        <hr>
+        <hr>
+        <p style="text-align:left;padding-left:10px;"></p>
+      </div>
+
+
 
     </div>
   </div>
   <!--   여기부터 답변 부분 -->
-  <div style='text-aligh:center;'>관리자 문의 리스트 클릭 - 답변</div>
   <div class="wrapper color2">
-    <h2>관리자의 답변이 요기에</h2>
+    <div class="clear">
+      <!-- <span class="color2 right">BC초콜릿</span> -->
+      <h3 style="text-align:left;padding-left:20px;padding-top:20px;">Re : 1:1 문의 체크 1 2 1 2</h3>
 
+      <div class="bgwhite  p-b-10">
+        <hr>
+        <p style="text-align:left;padding-left:10px;">123123</p>
+      </div>
+    </div>
   </div>
+  <footer class="clear">
+    <div class="sns-area">
+      <div class="sns-box">
+        <a href="http://goodaum.co.kr/" target="_blank" class="sns01">
+          <span class="hidden">블로그</span>
+        </a>
+        <a href="https://cafe.naver.com/itisgoodee" target="_blank" class="sns02">
+          <span class="hidden">카페</span>
+        </a>
+        <a href="https://www.instagram.com/it_edu_goodee/" target="_blank" class="sns03">
+          <span class="hidden">인스타그램</span>
+        </a>
+        <a href="https://www.facebook.com/goodee0205" target="_blank" class="sns04">
+          <span class="hidden">페이스북</span>
+        </a>
+      </div>
+      <div class="copy">Copyright ⓒ GooDee Academy. All rights reserved.</div>
+    </div>
+  </footer>
 </body>
 
 </html>

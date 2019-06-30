@@ -5,17 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <title>Document</title>
+  <script>
+    $(function(){
+      $("#abcd").click(function(e){
+        e.preventDefault();
+        console.log("11234");
+      });
+    });
+  </script>
 </head>
 
 <body>
   <a href="./faq.html">메인화면</a><br>
-  <a href="./uQuestion.html">사용자 문의 화면</a><br>
+  <a href="./faq_2.html">사용자 문의 화면</a><br>
   <a href="./uQuestionDetail.html">사용자 문의 화면 -클릭</a><br>
   <a href="./aQuestion.html">관리자 문의 리스트 화면</a><br>
   <a href="./aQuestionDetail.html">관리자 문의 리스트 화면 - 클릭</a><br>
   <a href="./tax.html">전자세금계산</a><br>
   <a href="./taxtax.html">전자세금계산 리스트 - 관리자</a><br>
+  <a href="" class="button" id="abcd"> 여기를 클릭</a>
 </body>
 
 </html>

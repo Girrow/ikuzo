@@ -8,6 +8,48 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/input.css">
   <title>Document</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/datepicker-ko.js"></script>
+  <script>
+    $(function() {
+      $("#date1").datepicker();
+      function check(){
+        var numb1=$("#input_numb1").val();
+        var cost1=$("#input_cost1").val();
+
+        var numb2=$("#input_numb2").val();
+        var cost2=$("#input_cost2").val();
+
+        var numb3=$("#input_numb3").val();
+        var cost3=$("#input_cost3").val();
+
+        var numb4=$("#input_numb4").val();
+        var cost4=$("#input_cost4").val();
+        $("#totalCost").val(numb1*cost1+numb2*cost2+numb3*cost3+numb4*cost4);
+        let sum=$("#totalCost").val();
+        $("#delCost").val(0.9*sum);
+      };
+
+      $("#temp").click(function(e){
+        e.preventDefault();
+        check();
+        var href=$(location).attr('search');
+        html="<div style="+'z-index:1;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50%;height:50%;background-color:white;'+">"+href+"1234</div>";
+
+        console.log(href);
+        $("#popup").empty().append(html);
+      });
+
+      $("#commit").click(function(){
+        check();
+
+      })
+
+
+    });
+  </script>
   <style>
     div {
       border: 1px solid black;
@@ -17,195 +59,358 @@
 </head>
 
 <body>
-  <div class="wrapper color3" style="position: relative;">
+  <div id="popup"></div>
+  <form action="taxtax.html">
+  <div class="wrapper" style="position: relative;">
+    <div class="half left radio">
+      <div class="left" style="line-height:400%;width:10%">
+        종류
+      </div>
+      <div class="left" style="width:90%">
+        <span>*과세* = </span>
+        <label><input type="radio" name="chk_info" value="상품 문의">과세(10%)</label>
+        <label><input type="radio" name="chk_info" value="1대1 문의">영세(0%)</label>
+        <label><input type="radio" name="chk_info" value="원한 상담">면세</label>
+      </div>
+    </div>
+    <div class="half left radio">
+      <div class="left" style="line-height:400%;width:10%">
+        종류
+      </div>
+      <div class="left" style="width:90%">
+        <span>*거래처* = </span>
+        <label><input type="radio" name="chk_info2" value="상품 문의">개인사업자</label>
+        <label><input type="radio" name="chk_info2" value="1대1 문의">개인</label>
+        <label><input type="radio" name="chk_info2" value="원한 상담">외국인</label>
+      </div>
+    </div>
 
-    <div class="half color1 left" style="position: relative;">
+    <div class="clear half color1 left" style="position: relative;">
       <div style="width:20px;position: absolute;top:50% transform:translate(0,-50%);font-size:1.1em;border:none;background:rgb(235, 228, 172);">공 급 자</div>
       <div class="container left" style="width:100%">
-          <div class="row">
-            <div class="col-25">
-              <label class="button" for="fname">등록번호</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="들어올 값" readonly>
-            </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="fnumb">등록번호</label>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="fname">상 호</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="들어올 값"readonly>
-            </div>
+          <div class="col-75">
+            <input type="text" id="fnumb" name="fnumb" placeholder="번호" disabled>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="fname">성 명</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="들어올 값"readonly>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="fcname">상 호</label>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="lname">주 소</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="들어올 값" readonly>
-            </div>
+          <div class="col-75">
+            <input type="text" id="fcname" name="fcname" placeholder="상호" disabled>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="country">업태</label>
-            </div>
-            <div class="col-75">
-              <select id="country" name="country">
-                <option value="australia">관광</option>
-                <option value="canada">역관광</option>
-                <option value="usa">우주구경</option>
-              </select>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="fname">성 명</label>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="lname">이메일</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="들어올 값" readonly>
-            </div>
+          <div class="col-75">
+            <input type="text" id="fname" name="fname" placeholder="성명" disabled>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="lname">작성일자</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="들어올 값" readonly>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="faddress">주 소</label>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="subject">Subject</label>
-            </div>
-            <div class="col-75">
-              <textarea id="subject" name="subject" placeholder="들어올 값" style="height:100px" readonly></textarea>
-            </div>
+          <div class="col-75">
+            <input type="text" id="faddress" name="faddress" placeholder="주소" disabled>
           </div>
-          <div class="row">
-            <!-- <input type="submit" value="Submit"> -->
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="ftype">업 태</label>
           </div>
+          <div class="col-75">
+            <select id="ftype" name="ftype" disabled>
+              <option value="australia">관광</option>
+              <option value="canada">역관광</option>
+              <option value="usa">우주구경</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="femail">이메일</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="femail" name="femail" placeholder="E-mail" disabled>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="ftime">작성일자</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="ftime" name="ftime" placeholder="20xx-xx-xx" disabled>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="fsubject">Subject</label>
+          </div>
+          <div class="col-75">
+            <textarea id="fsubject" name="fsubject" placeholder="부가내용" style="height:100px" disabled></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <input type="submit" value="Submit"> -->
+        </div>
       </div>
     </div>
+
     <div class="half color1 left" style="position: relative;">
-      <div style="width:20px;position: absolute;top:50% transform:translate(0,-50%);font-size:1.1em;border:none;background:rgb(88, 121, 204);">공 급 받 는 자</div>
-      <div class="container">
-          <div class="row">
-            <div class="col-25">
-              <label class="button" for="fname">등록번호</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="Your name..">
-            </div>
+      <div style="width:20px;position: absolute;top:50% transform:translate(0,-50%);font-size:1.1em;border:none;background:rgb(235, 228, 172);">공 급 받 는 자</div>
+      <div class="container left" style="width:100%">
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="lnumb">등록번호</label>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="fname">상 호</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="Your name..">
-            </div>
+          <div class="col-75">
+            <input type="text" id="lnumb" name="lnumb" placeholder="번호">
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="lname">주소</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="lcname">상 호</label>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="country">업태</label>
-            </div>
-            <div class="col-75">
-              <select id="country" name="country">
-                <option value="australia">관광</option>
-                <option value="canada">역관광</option>
-                <option value="usa">우주구경</option>
-              </select>
-            </div>
+          <div class="col-75">
+            <input type="text" id="lcname" name="lcname" placeholder="상호">
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="lname">이메일</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="lname">성 명</label>
           </div>
-          <div class="row">
-            <div class="col-25">
-              <label class="button"  for="subject">Subject</label>
-            </div>
-            <div class="col-75">
-              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-            </div>
+          <div class="col-75">
+            <input type="text" id="lname" name="lname" placeholder="성명">
           </div>
-          <div class="row">
-            <!-- <input type="submit" value="Submit"> -->
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="laddress">주 소</label>
           </div>
+          <div class="col-75">
+            <input type="text" id="laddress" name="laddress" placeholder="주소">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="ltype">업 태</label>
+          </div>
+          <div class="col-75">
+            <select id="ltype" name="ltype">
+              <option value="australia">관광</option>
+              <option value="canada" selected>역관광</option>
+              <option value="usa">우주구경</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="lemail">이메일</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="lemail" name="lemail" placeholder="이메일">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="ltime">작성일자</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="ltime" name="ltime" placeholder="작성일자">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label class="button_2" for="lsubject">Subject</label>
+          </div>
+          <div class="col-75">
+            <textarea id="lsubject" name="lsubject" placeholder="내용" style="height:100px"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <input type="submit" value="Submit"> -->
+        </div>
       </div>
     </div>
 
+    <div class="clear color4" style="display:inline-block;width:100%">
+      <div class="quarter left center">
+        <div class="button">
+          작성일자
+        </div>
+        <p><input type="text" name="date" id="date1" size="12" style="width:80%" /></p>
+      </div>
+      <div class="left quarter center" style="display:inline-block;">
+        <div class="button">
+          공급가액
+        </div>
+        <p><input type="text" id="totalCost" name="date" size="12" style="width:80%" disabled /></p>
+      </div>
+      <div class="left quarter center" style="display:inline-block;">
+        <div class="button">
+          합계금액
+        </div>
+        <p><input type="text" id="delCost" name="date" size="12" style="width:80%" disabled /></p>
+      </div>
+      <div class="left quarter center" style="display:inline-block;">
+        <div class="button">
+          비고
+        </div>
+        <p><input type="text" name="date" size="12" style="width:80%" /></p>
+      </div>
+    </div>
 
+    <div class="bgwhite">
+      <ul class="inp_ul">
+        <li>월</li>
+        <li>일</li>
+        <li>품목</li>
+        <li>규격</li>
+        <li>수량</li>
+        <li>단가</li>
+        <li>합계</li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+      </ul>
+      <ul class="inp_ul inp_re">
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text"/ style="width:65%">
+          <span style="background-color:rgb(78, 143, 201);padding:10px 5px;">조회</span>
+        </li>
+        <li><input type="text"/></li>
+        <li><input type="text" id="input_numb1"/></li>
+        <li><input type="text" id="input_cost1"/></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">계산</span></li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">삭제</span></li>
+      </ul>
+    </div>
+    <div class="bgwhite">
+      <ul class="inp_ul">
+        <li>월</li>
+        <li>일</li>
+        <li>품목</li>
+        <li>규격</li>
+        <li>수량</li>
+        <li>단가</li>
+        <li>합계</li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+      </ul>
+      <ul class="inp_ul inp_re">
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text"/ style="width:65%">
+          <span style="background-color:rgb(78, 143, 201);padding:10px 5px;">조회</span>
+        </li>
+        <li><input type="text" /></li>
+        <li><input type="text" id="input_numb2"/></li>
+        <li><input type="text" id="input_cost2"/></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">계산</span></li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">삭제</span></li>
+      </ul>
 
+    </div>
+    <div class="bgwhite">
+      <ul class="inp_ul">
+        <li>월</li>
+        <li>일</li>
+        <li>품목</li>
+        <li>규격</li>
+        <li>수량</li>
+        <li>단가</li>
+        <li>합계</li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+      </ul>
+      <ul class="inp_ul inp_re">
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text"/ style="width:65%">
+          <span style="background-color:rgb(78, 143, 201);padding:10px 5px;">조회</span>
+        </li>
+        <li><input type="text" /></li>
+        <li><input type="text" id="input_numb3"/></li>
+        <li><input type="text" id="input_cost3"/></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">계산</span></li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">삭제</span></li>
+      </ul>
+    </div>
+    <div class="bgwhite">
+      <ul class="inp_ul">
+        <li>월</li>
+        <li>일</li>
+        <li>품목</li>
+        <li>규격</li>
+        <li>수량</li>
+        <li>단가</li>
+        <li>합계</li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+      </ul>
+      <ul class="inp_ul inp_re">
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text"/ style="width:65%">
+          <span style="background-color:rgb(78, 143, 201);padding:10px 5px;">조회</span>
+        </li>
+        <li><input type="text" /></li>
+        <li><input type="text" id="input_numb4"/></li>
+        <li><input type="text" id="input_cost4"/></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">계산</span></li>
+        <li>공급가액</li>
+        <li>세액</li>
+        <li>비고</li>
+        <li>삭제</li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><input type="text" /></li>
+        <li><span style="background-color:rgb(78, 143, 201);padding:10px 5px;">삭제</span></li>
+      </ul>
 
-
+    </div>
+    <div class="right" style="border:none">
+      <button class="button" id="commit">발급 하기</button>
+      <button class="button" id="temp">발급 보류</button>
+      <button class="button" type="submit">발급 출력</button>
+    </div>
   </div>
-
-  <div class="container clear">
-    <form action="action_page.php">
-      <div class="row">
-        <div class="col-25">
-          <label for="fname">First Name</label>
-        </div>
-        <div class="col-75">
-          <input type="text" id="fname" name="firstname" placeholder="Your name..">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Last Name</label>
-        </div>
-        <div class="col-75">
-          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="country">Country</label>
-        </div>
-        <div class="col-75">
-          <select id="country" name="country">
-            <option value="australia">관광</option>
-            <option value="canada">역관광</option>
-            <option value="usa">우주구경</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="subject">Subject</label>
-        </div>
-        <div class="col-75">
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <input type="submit" value="발행">
-      </div>
-    </form>
-  </div>
-
+  </form>
 </body>
 
 </html>
