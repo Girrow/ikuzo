@@ -67,10 +67,22 @@ const server = {
                       res.redirect("/main");
                       return;
                   }
+
                   console.log(resultList);
                   res.render("./db.html", {data :resultList});
                 });
             });
+            // 라우터.route("/m15/faq").get((req, res) => {
+            //     server.DB("select title, content from FAQ", [], (err, resultList) => {
+            //       if(err){
+            //           res.redirect("/main");
+            //           return;
+            //       }
+            //       console.log("1234");
+            //       console.log(resultList);
+            //       res.render("./m15/faq.html", {data :resultList});
+            //     });
+            // });
             앱.use("/", 라우터);
             server.STEP_2();
         },

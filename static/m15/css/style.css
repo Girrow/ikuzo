@@ -1,9 +1,12 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color: rgb(245, 245, 251);
+  /* background-color: rgb(245, 245, 251); */
+  font-family: 'Do Hyeon', sans-serif!important;
 }
-
+a:visited{
+  color: inherit;
+}
 /*   이미지를 위한 css   */
 .wrapper {
   max-width: 980px;
@@ -79,6 +82,7 @@ img {
   cursor: pointer;
   white-space: nowrap;
   color: white;
+  float: right;
   margin: 10px 10px;
 }
 
@@ -405,6 +409,7 @@ footer {height: 210px; text-align: center; background-color: #434b58; color: whi
   transition: 0.4s;
   margin:10px 0px;
   min-height: 80px;
+    font-family: 'Do Hyeon', sans-serif;
 }
 
 .active, .accordion:hover {
@@ -482,12 +487,36 @@ display: none;
   position: relative;
 }
 .radio,.radio>div{
-  font-size: 0.8em;
+  font-size: 1em;
   border: none;
   font-weight: bold;
 }
+#mySidesp{
+  display: none;
+}
+.abc{
+  border: none;
+}
 
+.bdnon{
+  border:none!important;
+  box-sizing: none;
+}
+.writeFormR>input{
+  display: inline!important;
+}
 
+.popup{
+  z-index:1;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:30%;
+  height:50%;
+  background-color:white;
+  text-align: center;
+}
 @media screen and (max-width:768px){
   .radio{
     width: 100%;
@@ -558,4 +587,26 @@ display: none;
     display: inline-block;
     margin-left: 8%;
   }
+}
+
+
+@media screen and (max-width:576px){
+  header {padding: 10px 0;}
+  .half{
+    width: 100%;
+  }
+  header>.uul{
+    display: none;
+  }
+  #mySidesp{
+    display: inline;
+    font-size: 3em;
+    color:white;
+    text-align: left;
+    float: left;
+  }
+  #mySidesp:hover{
+    cursor: pointer;
+  }
+
 }
