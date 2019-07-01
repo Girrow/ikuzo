@@ -1,31 +1,400 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+  <link rel="stylesheet" href="./css/commons.css">
+  <link rel="stylesheet" media="only screen and (max-width: 768px)" href="./css/main_768.css">
+	<link rel="stylesheet" media="only screen and (max-width: 576px)" href="./css/main_576.css">
   <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <style>
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      height: 80%;
+    }
+    /* The Close Button */
+    .close .update {
+      color: #aaaaaa;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover, .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
   <script>
-    $(function(){
-      $("#abcd").click(function(e){
-        e.preventDefault();
-        console.log("11234");
-      });
+  $(document).ready(function(){
+    $('#mid_cate').attr('disabled', 'true');
+    $('#mid_cate').css('background-color', 'gray');
+    $('#small_cate').attr('disabled', 'true');
+    $('#small_cate').css('background-color', 'gray');
+
+    $('.midCateTable').css('display', 'none');
+    $('.smallCateTable').css('display', 'none');
+
+    $('#main_cate').change(function(){
+      if($('#main_cate Option:selected').val() == 1){
+        $('#mid_cate').attr('disabled', 'true');
+        $('#mid_cate').css('background-color', 'gray');
+        $('#small_cate').attr('disabled', 'true');
+        $('#small_cate').css('background-color', 'gray');
+        $('.mainCateTable').css('display', 'table');
+        $('.midCateTable').css('display', 'none');
+        $('.smallCateTable').css('display', 'none');
+
+        var html = "";
+        $('#mid_cate').empty().append(html);
+        $('#small_cate').empty().append(html);
+      }
+      else if($('#main_cate Option:selected').val() == 2){
+        $('#mid_cate').removeAttr('disabled');
+        $('#mid_cate').css('background-color', 'white');
+
+        $('.mainCateTable').css('display', 'none');
+        $('.midCateTable').css('display', 'table');
+
+        var html = '<option value=1 > 중분류 </option>';
+        html += '<option value=2 > 원숭이 </option>';
+        html += '<option value=3 > 강아지 </option>';
+        $('#mid_cate').append(html);
+
+        $('#mid_cate').change(function(){
+          if ($('#mid_cate Option:selected').val() == 1) {
+            $('#small_cate').attr('disabled', 'true');
+            $('#small_cate').css('background-color', 'gray');
+            $('.mainCateTable').css('display', 'table');
+            $('.midCateTable').css('display', 'none');
+            $('.smallCateTable').css('display', 'none');
+
+          }
+          else if($('#mid_cate Option:selected').val() == 2){
+            $('#small_cate').removeAttr('disabled');
+            $('#small_cate').css('background-color', 'white');
+            $('.mainCateTable').css('display', 'none');
+            $('.midCateTable').css('display', 'none');
+            $('.smallCateTable').css('display', 'table');
+
+            var html = '<option value=1 > 소분류 </option>';
+            html += '<option value=2 > 원숭이눈알 </option>';
+            html += '<option value=3 > 원숭이코 </option>';
+            $('#small_cate').empty().append(html);
+          }
+
+        })
+      }
     });
+
+
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    // Get the <span> element that closes the modal
+    $(".myBtn").click(function(){
+      //var tdArr = new Array();    // 배열 선언
+
+      // 현재 클릭된 Row(<tr>)
+      var tr = $(this);
+      var td = tr.children();
+      //console.log("클릭한 Row의 모든 데이터 : "+tr.text());
+      /*
+      td.each(function(i){
+        tdArr.push(td.eq(i).text());
+      });
+      //console.log("배열에 담긴 값 : "+tdArr);
+      */
+
+      $("span[name=detail_index]").text(td.eq(0).text());
+      $("span[name=detail_catename]").text(td.eq(1).text());
+      $("span[name=detail_catecode]").text(td.eq(2).text());
+      $("span[name=detail_availstock]").text(td.eq(3).text());
+      $("span[name=detail_reqstock]").text(td.eq(4).text());
+      $("span[name=detail_spec]").text(td.eq(5).text());
+      $("span[name=detail_unit]").text(td.eq(6).text());
+
+       modal.style.display="block";
+    })
+    $(".close").click(function(){
+      modal.style.display="none";
+    })
+    $(".update").click(function(){
+      location.href="bom_update.html";
+    })
+  });
   </script>
 </head>
-
 <body>
-  <a href="./faq.html">메인화면</a><br>
-  <a href="./faq_2.html">사용자 문의 화면</a><br>
-  <a href="./uQuestionDetail.html">사용자 문의 화면 -클릭</a><br>
-  <a href="./aQuestion.html">관리자 문의 리스트 화면</a><br>
-  <a href="./aQuestionDetail.html">관리자 문의 리스트 화면 - 클릭</a><br>
-  <a href="./tax.html">전자세금계산</a><br>
-  <a href="./taxtax.html">전자세금계산 리스트 - 관리자</a><br>
-  <a href="" class="button" id="abcd"> 여기를 클릭</a>
-</body>
+  <header>
+    <h1 style="color: white;">LOGO</h1>
+  </header>
+  <div class="main_container">
+    <div class="nav_container">
+      <nav>
+        <span id="nav_id">BOM</span>
+        <ul>
+          <li><a href="./index.html"> 조회 </a></li>
+          <li><a href="./bom_add.html"> 등록 </a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="section_container">
+      <div class="text_container">
+        <h2>조회</h2>
+      </div>
+      <div class="check_container">
+        <div class="select_container">
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">대분류 :</p>
+            <select id="main_cate" name="main_cate">
+              <option value="1">대분류</option>
+              <option value="2">인형</option>
+              <option value="3">전자기기</option>
+            </select>
+          </div>
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">중분류 :</p>
+            <select id="mid_cate" name="mid_cate" disabled="disabled" style="background-color: gray;">
+            </select>
+          </div>
+          <div class="inner">
+            <p style="text-align: center; margin : 0; padding: 0;">소분류 :</p>
+            <select id="small_cate" name="small_cate" disabled="disabled" style="background-color: gray;">
+            </select>
+          </div>
+        </div>
+      </div>
+      <table id="data_table" class="mainCateTable" style="width: 80%; margin-left:10%;">
+        <thead style="background-color: black; color: white">
+          <tr>
+            <th>index</th>
+            <th>품명</th>
+            <th>품목코드</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #d4d4aa;" class="myBtn">
+            <td>1</td>
+            <td class="list1">인형</td>
+            <td>A01</td>
+          </tr>
+          <tr style="background-color: #ffffff;" class="myBtn">
+            <td>2</td>
+            <td class="list1">전자기기</td>
+            <td>A02</td>
+          </tr>
+          <tr style="background-color: #d4d4aa;" class="myBtn">
+            <td>3</td>
+            <td class="list1">신발</td>
+            <td>A03</td>
+          </tr>
+        </tbody>
+        <tfoot style="background-color: gray; color: white">
+          <tr><th>index</th>
+            <th>품명</th>
+            <th>품목코드</th>
+          </tr>
+        </tfoot>
+      </table>
 
-</html>
+      <table id="data_table" class="midCateTable" style="width: 80%; margin-left: 10%; display: none;">
+        <thead style="background-color: black; color: white">
+          <tr><th>index</th>
+            <th>품명</th>
+            <th>품목코드</th>
+            <th>규격</th>
+            <th>단위</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #d4d4aa;" class="myBtn">
+            <td>1</td>
+            <td class="list1">원숭이인형</td>
+            <td>A01-A01</td>
+            <td>30*30cm</td>
+            <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff;" class="myBtn">
+            <td>2</td>
+            <td class="list1">강아지인형</td>
+            <td>A01-A02</td>
+            <td>50*30cm</td>
+            <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa;" class="myBtn">
+            <td>3</td>
+            <td class="list1">BAL</td>
+            <td>A01-A03</td>
+            <td>10*10cm</td>
+            <td>1EA</td>
+          </tr>
+        </tbody>
+        <tfoot style="background-color: gray; color: white">
+          <tr><th>index</th>
+            <th>품명</th>
+            <th>품목코드</th>
+            <th>규격</th>
+            <th>단위</th>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span id="modal_title">index</span><span name="detail_index" id="modal_data">1</span>
+                  <span id="modal_title">품명</span><span name="detail_catename" id="modal_data">원숭이눈알</span>
+                  <span id="modal_title">품목코드</span><span name="detail_catecode" id="modal_data">C-0001</span>
+                  <span id="modal_title">소요수량</span><span name="detail_reqstock" id="modal_data">2</span>
+                  <span id="modal_title">재고수량</span><span name="detail_availstock" id="modal_data">999999</span>
+                  <span id="modal_title">규격</span><span name="detail_spec" id="modal_data">3cm</span>
+                  <span id="modal_title">단위</span><span name="detail_unit" id="modal_data">1EA</span>
+                  <span style="width: 100%; border: 0;">
+                    <button class="update">수정</button>
+                    <button class="close">닫기</button>
+                  </span>
+                </div>
+              </div><table id="data_table" class="smallCateTable" style="width: 80%; margin-left: 10%; display: none;">
+        <thead style="background-color: black; color: white">
+          <tr>
+              <th>index</th>
+              <th>품명</th>
+              <th>품목코드</th>
+              <th>소요수량</th>
+              <th>재고수량</th>
+              <th>규격</th>
+              <th>단위</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #d4d4aa;" class="myBtn">
+              <th name="tb_index">1</th>
+              <td name="tb_catename">원숭이눈알</td>
+              <td name="tb_catecode">A01-A01-001</td>
+
+              <td name="tb_reqstock">2</td>
+              <td name="tb_availstock">999999</td>
+              <td name="tb_detailstock">3cm</td>
+              <td name="tb_detailunit">1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff;" class="myBtn">
+              <th>2</th>
+              <td>원숭이코</td>
+              <td>A01-A01-002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa" class="myBtn">
+              <th>3</th>
+              <td>원숭이가죽</td>
+              <td>A01-A01-003</td>
+              <td>2</td>
+              <td>1000</td>
+              <td>90*90cm</td>
+              <td>9DS</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>0</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa">
+              <th>0</th>
+              <td>원숭이눈알</td>
+              <td>C-0001</td>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>0</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa">
+              <th>0</th>
+              <td>원숭이눈알</td>
+              <td>C-0001</td>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>0</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #d4d4aa">
+              <th>0</th>
+              <td>원숭이눈알</td>
+              <td>C-0001</td>
+              <td>2</td>
+              <td>999999</td>
+              <td>3cm</td>
+              <td>1EA</td>
+          </tr>
+          <tr style="background-color: #ffffff">
+              <th>0</th>
+              <td>원숭이코</td>
+              <td>C-0002</td>
+              <td>1</td>
+              <td>50000</td>
+              <td>2cm</td>
+              <td>1EA</td>
+          </tr>
+
+        </tbody>
+        <tfoot style="background-color:gray; color:white">
+          <tr>
+            <th>index</th>
+            <th>품명</th>
+            <th>품목코드</th>
+            <th>소요수량</th>
+            <th>재고수량</th>
+            <th>규격</th>
+            <th>단위</th>
+          </tr>
+        </tfoot>
+      </table>
+
+    </div>
+  </div>
+
+
+</body></html>
