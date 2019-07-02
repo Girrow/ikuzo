@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/util.css">
+	<title>SPA</title>
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+	</script>
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<h2 class="color2" style="padding:10px 10px;  border-top-left-radius: 25px;border-top-right-radius: 25px;">Frequently Asked Questions</h2>
+		<div class="left half">
+			<div class="center color4" style=" border-bottom-left-radius:25px">업데이트 문의관련 FAQ
+				<button class="accordion">업데이트 관련 문의 사항</button>
+				<div class="panel">
+					<p> 대한민국의 영토는 한반도와 그 부속도서로 한다.<br>이 헌법중 공무원의 임기 또는 중임제한에 관한 규정은 이 헌법에 의하여 그 공무원이 최초로 선출 또는 임명된 때로부터 적용한다.
+						법률은 특별한 규정이 없는 한 공포한 날로부터 20일을 경과함으로써 효력을 발생한다. </p>
+				</div>
+
+				<button class="accordion">언어 적용 관련 문의 사항</button>
+				<div class="panel">
+					<p>혼인과 가족생활은 개인의 존엄과 양성의 평등을 기초로 성립되고 유지되어야 하며, 국가는 이를 보장한다. 모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다.</p>
+				</div>
+
+				<button class="accordion">업데이트 관련 문의 사항</button>
+				<div class="panel">
+					<p>국회의원은 국가이익을 우선하여 양심에 따라 직무를 행한다. 저작자·발명가·과학기술자와 예술가의 권리는 법률로써 보호한다. 광물 기타 중요한 지하자원·수산자원·수력과 경제상 이용할 수 있는 자연력은 법률이 정하는 바에 의하여 일정한 기간 그 채취·개발 또는 이용을 특허할 수 있다.</p>
+				</div>
+			</div>
+		</div>
+		<div class="left half">
+			<div class="center color1" style=" border-bottom-right-radius:25px">1:1문의사항 관련 FAQ
+				<button class="accordion">1:1 문의답변이 오지 않을 경우</button>
+				<div class="panel">
+					<p>국가는 노인과 청소년의 복지향상을 위한 정책을 실시할 의무를 진다. 법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 국가는 주택개발정책등을 통하여 모든 국민이 쾌적한 주거생활을 할 수 있도록 노력하여야 한다.</p>
+				</div>
+
+				<button class="accordion">전자세금계산서 사용 관련</button>
+				<div class="panel">
+					<p>국가는 노인과 청소년의 복지향상을 위한 정책을 실시할 의무를 진다. 법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 국가는 주택개발정책등을 통하여 모든 국민이 쾌적한 주거생활을 할 수 있도록 노력하여야 한다.</p>
+				</div>
+
+				<button class="accordion">관리자가 선호하는</button>
+				<div class="panel">
+					<p>국가는 노인과 청소년의 복지향상을 위한 정책을 실시할 의무를 진다. 법관은 헌법과 법률에 의하여 그 양심에 따라 독립하여 심판한다. 국가는 주택개발정책등을 통하여 모든 국민이 쾌적한 주거생활을 할 수 있도록 노력하여야 한다.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 사용자 테이블  -->
+	<div class="wrapper">
+		<div class="limiter">
+			<div style="text-align: center;">
+				<span class='green_window'>
+					<input id="searchT" type='text' class='input_text' />
+				</span>
+				<button id="searchB" type="button" class='sch_smit'>검색</button>
+				<br>
+				<button class="button" id="OneonOne">1:1 다이렉트 문의</button>
+				<button class="button" id="writeQ">작성하기</button>
+			</div>
+			<div class="container-table100">
+				<div class="wrap-table100">
+					<div class="table">
+
+						<div class="row header">
+							<div class="cell">
+								제목
+							</div>
+							<div class="cell">
+								문의사항
+							</div>
+							<div class="cell">
+								아이디
+							</div>
+							<div class="cell">
+								작성일자
+							</div>
+							<div class="cell">
+								답변
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="cell" data-title="제목">
+								Q4. 어떻게 하죠?
+							</div>
+							<div class="cell" data-title="문의사항">
+								1:1 문의
+							</div>
+							<div class="cell" data-title="아이디">
+								admin
+							</div>
+							<div class="cell" data-title="작성일자">
+								2019-06-26-17:55
+							</div>
+							<div class="cell" data-title="답변" style="min-width:70px;">
+								N
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="cell" data-title="제목">
+								Q1. 어떻게 하죠?
+							</div>
+							<div class="cell" data-title="문의사항">
+								1:1 문의
+							</div>
+							<div class="cell" data-title="아이디">
+								admin
+							</div>
+							<div class="cell" data-title="작성일자">
+								2019-06-26-17:55
+							</div>
+							<div class="cell" data-title="답변">
+								N
+							</div>
+						</div>
+						<div class="row">
+							<div class="cell" data-title="제목">
+								Q2. 어떻게 하죠?
+							</div>
+							<div class="cell" data-title="문의사항">
+								상품 상세 질문
+							</div>
+							<div class="cell" data-title="아이디">
+								admin
+							</div>
+							<div class="cell" data-title="작성일자">
+								2019-06-26-17:55
+							</div>
+							<div class="cell" data-title="답변">
+								N
+							</div>
+						</div>
+						<div class="row">
+							<div class="cell" data-title="제목">
+								Q3. 어떻게 하죠?
+							</div>
+							<div class="cell" data-title="문의사항">
+								1:1 문의
+							</div>
+							<div class="cell" data-title="아이디">
+								admin
+							</div>
+							<div class="cell" data-title="작성일자">
+								2019-06-26-17:55
+							</div>
+							<div class="cell" data-title="답변">
+								N
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<form action="./faq_2.html">
+			<div class="pack_hr" style="margin:0px 0px 8px 0px;padding:0px;">
+
+				<div class="left half radio writeFormR">
+					<input type="radio" name="chk_info" value="상품 문의" checked>상품 환불 문의
+					<input type="radio" name="chk_info" value="1대1 문의">배송 문의
+					<input type="radio" name="chk_info" value="원한 상담">고민상담
+				</div>
+				<div class="clear" style="padding-top:10px;">
+					<span style="padding:6px 4px;background-color:black;color:white;">제목</span>
+					<input style="width:100%;display: inline-block;height:25px;" type="text" placeholder="제목" name="title" />
+				</div>
+			</div>
+			<div class="clear">
+				<textarea style="margin-top:20px;width:100%;height:20vh" placeholder="내용" name="message" rows="12"></textarea>
+			</div>
+			<button class="right button section" type="submit">
+				<i class="fa fa-paper-plane"></i> 작성하기
+			</button>
+		</form>
+	</div>
+
+
+	<div class="wrapper clear">
+		<form action="./faq_2.html">
+			<div class="pack_hr" style="margin:0px 0px 8px 0px;padding:0px;">
+
+				<!-- <div class="left half radio writeFormR">
+					<input type="radio" name="chk_info" value="상품 문의" checked>상품 환불 문의
+					<input type="radio" name="chk_info" value="1대1 문의">배송 문의
+					<input type="radio" name="chk_info" value="원한 상담">고민상담
+				</div> -->
+				<div class="clear" style="padding-top:10px;">
+					<span style="padding:6px 4px;background-color:black;color:white;">Q</span>
+					<input style="width:100%;display: inline-block;height:25px;" type="text" placeholder="제목" name="title" />
+				</div>
+			</div>
+			<div class="clear">
+				<span style="padding:6px 4px;background-color:black;color:white;">A</span>
+				<textarea style="width:100%;height:20vh" placeholder="내용" name="message" rows="12"></textarea>
+			</div>
+			<button class="right button section" type="submit">
+				<i class="fa fa-paper-plane"></i> 작성하기
+			</button>
+		</form>
+	</div>
+
+	<div class="wrapper clear">
+		<ul>
+			<li class="color3">공급자</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">등록번호</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">1122</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">상호</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">구디</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">성명</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">김덕배</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">주소</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">서울특별시</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">업태</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">관광</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">이메일</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">harin@goodee.kr</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">작성자</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">정하린</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">subject</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">비고사항</li>
+			<br>
+		</ul>
+
+		<ul>
+			<li class="color3">공급받는자</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">등록번호</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">상호</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">성명</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">주소</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">업태</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">이메일</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<br>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">작성자</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<li class="color1" style="width:10%;display:inline-block;margin-right:-5px;height:30px;">subject</li>
+			<li class="color2" style="width:40%;display:inline-block;margin-right:-5px;height:30px;">2</li>
+			<br>
+		</ul>
+		<div class="button">취소</div>
+		<div class="button">출력보류</div>
+		<div class="button">출력하기</div>
+	</div>
+</body>
+
+</html>
