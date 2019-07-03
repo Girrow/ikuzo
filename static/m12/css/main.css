@@ -58,13 +58,13 @@ ul, li {
 /* ------------------------------------ */
 input {
   display: block;
-	outline: none;
-	border: none !important;
+	/* outline: none; */
+	/* border: none !important; */
 }
 
 textarea {
   display: block;
-  outline: none;
+  /* outline: none; */
 }
 
 textarea:focus, input:focus {
@@ -97,7 +97,7 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  min-height: 42.8vh;
+  min-height: 40vh;
   background: rgb(217, 211, 197);
 
   display: -webkit-box;
@@ -126,6 +126,7 @@ iframe {
 @media screen and (max-width: 768px) {
   .table {
     display: block;
+		text-align: center;
   }
 }
 
@@ -161,7 +162,7 @@ iframe {
     text-transform: uppercase;
     font-weight: unset !important;
 
-    margin-bottom: 13px;
+    margin-bottom: 1px;/*13px*/
     content: attr(data-title);
     min-width: 98px;
     display: block;
@@ -202,7 +203,7 @@ iframe {
 }
 
 .row .cell:nth-child(1) {
-  width: 360px;
+  width: 400px;
   padding-left: 40px;
 }
 
@@ -211,13 +212,15 @@ iframe {
 }
 
 .row .cell:nth-child(3) {
-  width: 250px;
+  width: 70px;
 }
 
 .row .cell:nth-child(4) {
-  width: 190px;
+  width: 150px;
 }
-
+.row .cell:nth-child(5) {
+  width: 50px;
+}
 
 .table, .row {
   width: 100% !important;
