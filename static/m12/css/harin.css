@@ -22,6 +22,8 @@ header{
 	width: 16%;
 	background-color: white;
 	text-align: center;
+  border:2px solid rgb(95, 121, 89);
+  box-sizing: border-box;
 }
 .hlist>li>a{
 	display: block;
@@ -92,9 +94,12 @@ button{
   color:#fff;
   border:none;
   position:relative;
+
+
   height:40px;
   font-size:1.6em;
   padding:0 0.5em;
+          /*마진 원래 없었음*/
   cursor:pointer;
   transition:800ms ease all;
   outline:none;

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<!-- <link rel="stylesheet" href="css/common.css"> -->
+	<link rel="stylesheet" href="css/harin.css">
+	<link rel="stylesheet" href="css/flex.css">
+	<link rel="stylesheet" href="css/faq.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<style>
+		.wrapper {
+			max-width: 980px;
+			margin: 0 auto;
+		}
+	</style>
+	<script>
+		var clics = 0;
+
+		$(document).ready(function() {
+
+			$('.respuesta').hide();
+			$('#cerrartodas').hide();
+
+			$('h3').click(function() {
+
+				$(this).next('.respuesta').toggle(function() {
+
+					$(this).next('.respuesta');
+
+				}, function() {
+
+					$(this).next('.respuesta').fadeIn('fast');
+
+				});
+
+				if ($(this).hasClass('cerrar')) {
+					$(this).removeClass('cerrar');
+				} else {
+					$(this).addClass('cerrar');
+				};
+
+				if ($('.cerrar').length >= 3) {
+
+					$('#cerrartodas').fadeIn('fast');
+
+				} else {
+					$('#cerrartodas').hide();
+					var abiertas = $('.cerrar').length
+					console.log(abiertas);
+				}
+			}); //Close Function Click
+
+		}); //Close Function Ready
+
+		$('#cerrartodas').click(function() {
+			$('.respuesta').fadeOut(200);
+			$('h3').removeClass('cerrar');
+			$('#cerrartodas').fadeOut('fast');
+		});
+	</script>
+</head>
+
+<body>
+	<header class="color2">
+		<ul class="hlist">
+			<li>
+				<a href="index.html">공지사항</a>
+			</li>
+			<li>
+				<a href="faq.html">FAQ</a>
+			</li>
+			<li>
+				<a href="inquiryTable.html">문의하기</a>
+			</li>
+			<li>
+				<a href="deliveryConf.html">배송확인</a>
+			</li>
+			<li>
+				<a href="refundForm.html">반품신청</a>
+			</li>
+			<li>
+				<a href="serviceInfo.html">소개</a>
+			</li>
+		</ul>
+	</header>
+
+	<div class="wrapper">
+		<h2 class="wrapLogo">Frequency Ask Question</h2>
+		<div id="preguntas">
+			<h3>What is the difference between soul and spirit?</h3>
+			<div class="respuesta">
+				<p>1234</p>
+			</div>
+			<h3>Why did the people in Genesis live such long lives?</h3>
+			<div class="respuesta">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, officia nisi suscipit quis dolor provident ad, facilis aspernatur est. Consequuntur ad maxime ipsam dolor, inventore rem cum, libero fugiat laboriosam, amet
+					laudantium nulla explicabo.
+					Sit cum obcaecati, dignissimos. Fuga qui quasi sequi veniam itaque ipsam ab temporibus sit impedit consectetur, aut, maxime, totam adipisci. A eaque iste earum consequatur culpa? Eveniet atque beatae soluta accusantium id, sunt
+					eum fugit sint
+					optio cum ab reiciendis vel error iste et ipsa doloremque deleniti adipisci provident! Accusamus sit aperiam alias, quisquam veniam non.</p>
+			</div>
+			<h3>Why did God create us?</h3>
+			<div class="respuesta">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit quaerat nostrum asperiores, ab odit similique. Deserunt magnam necessitatibus, error impedit iste aliquam incidunt fuga. Dolores temporibus non doloremque maiores
+					repellat harum facere
+					nam expedita hic eaque, provident quia ipsa excepturi explicabo. Est consequatur mollitia unde quo eius velit voluptate ea a ipsa error blanditiis tempora doloribus reprehenderit maiores non suscipit nam amet corrupti dolor qui
+					dignissimos, excepturi
+					aliquam quos optio porro? Nihil, earum soluta ratione accusantium iste illo veniam officia hic laboriosam. Rerum, officia quisquam vitae quod cupiditate doloribus itaque.</p>
+			</div>
+			<h3>Is there an age limit to us to live?</h3>
+			<div class="respuesta">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt quas vero quod eius quaerat! Voluptatibus beatae repudiandae veritatis ea ex itaque, nesciunt quaerat. Similique nam accusantium iste veniam placeat necessitatibus
+					recusandae nihil
+					cupiditate natus, illum aspernatur at quia expedita consequatur praesentium tenetur, voluptatem. Provident eum nesciunt, soluta, itaque ullam unde. Neque a tenetur explicabo pariatur nostrum nihil at repellendus repudiandae ad rem
+					quisquam, eaque
+					maxime blanditiis voluptates inventore saepe odio et ea eius sed vitae excepturi libero iusto perferendis. Soluta amet et facere quod, odio fugiat officia, doloremque! Dolor, aperiam!</p>
+			</div>
+			<h3>How the first clock synchronized?</h3>
+			<div class="respuesta">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur eius, quod est porro hic nulla iure consectetur culpa, officia suscipit blanditiis dolor numquam impedit quisquam obcaecati. Autem dolore id ea quas omnis, aliquid
+					voluptatibus harum,
+					quis illum eligendi qui quia labore nobis adipisci voluptates! Porro vero earum repellat officiis dolor eaque impedit, consequuntur accusantium sit deleniti, accusamus vitae quos fuga ea iure consequatur asperiores sint atque
+					cupiditate magnam
+					animi! Expedita consequuntur nemo aperiam, illum, quo beatae vel nisi, enim veniam dolore in suscipit provident quas necessitatibus natus, dolores? Provident, nostrum.</p>
+			</div>
+			<h3>What is the synonym for the word "synonym"?</h3>
+			<div class="respuesta">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda nostrum corporis, autem alias explicabo id. Minima vero repellendus ducimus alias natus itaque animi, adipisci laboriosam doloribus consequatur sit excepturi ab
+					laborum laudantium.
+					Laudantium molestias sapiente obcaecati recusandae ad odio esse autem quasi possimus quam, consectetur quo neque quas quod nesciunt aut atque iure corporis quaerat, repudiandae debitis harum placeat eum, hic perspiciatis?
+					Dignissimos quam aperiam,
+					enim. Quis labore, a velit ipsa eveniet eaque provident harum voluptatibus maiores sunt accusantium aliquam explicabo fugiat praesentium nihil officiis optio exercitationem nam quod vel?</p>
+			</div>
+			<h3>Why we lower the radio volume when seeking somewhere to park?</h3>
+			<div class="respuesta">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi optio ipsa, deserunt magnam ducimus eveniet quis repellendus eum quae dolores accusantium obcaecati facere ut maxime est, molestias eaque tempore? Quasi aliquam, quia
+					repellendus dicta
+					officiis maxime repudiandae cupiditate beatae animi exercitationem magni quibusdam totam inventore a atque, iure autem at nesciunt error dolor! Sequi, quam soluta! Incidunt consectetur repudiandae omnis quisquam ipsum neque
+					officia dolor magni
+					suscipit dignissimos impedit similique veritatis facere sapiente fugiat, iste possimus quos. Reiciendis dicta doloremque ab quae explicabo, nesciunt officia molestiae laborum, libero sapiente sequi.</p>
+			</div>
+			<h3>If all men are equal, why women choose both?</h3>
+			<div class="respuesta">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati porro dolorum omnis, ipsum blanditiis totam nam velit, voluptatibus ullam fuga suscipit culpa asperiores amet praesentium, reprehenderit quidem facere esse maiores
+					tempora est tenetur
+					veritatis. Nisi corporis, nam. Tempora excepturi aut ducimus dolore quisquam dolores sed doloribus cum quae quo illo ea quidem nisi a vel esse libero distinctio, incidunt rem vero laborum eveniet harum culpa! Accusamus, corrupti!
+					Ex odit deserunt
+					aliquid accusamus exercitationem tempore, voluptate. Libero sed, at, nulla quaerat aperiam assumenda eveniet soluta harum neque, eos veniam repellat quia.</p>
+			</div>
+
+			<a href="#" id="cerrartodas">Close all</a>
+		</div>
+	</div>
+
+	<footer class="footer-flex">
+		<div class="footer-item" style="background-color:black;">1</div>
+	</footer>
+</body>
+
+</html>

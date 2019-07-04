@@ -124,7 +124,9 @@
 }
 
 .flex-row>img{
-	width: 100%;
+	padding:4% 6%;
+	max-width: 200px;
+	min-width:100px;
 }
 
 .flex-box{
@@ -186,3 +188,100 @@
 
 
 /* 오늘 끝 */
+
+/* 0704시작 */
+.flex-box2{
+	margin: 30px 0px;
+	height: 150px;
+	background-color:rgb(126, 191, 251);
+	flex:1;
+	align-items: center;
+}
+
+/* 끝 */
+
+.containerH{
+	height: 500px;
+	margin: 0 auto;
+
+}
+
+.rowH{
+	display: flex;
+
+	/* flex-direction:column;
+	flex-wrap: wrap;
+ justify-content: space-around;
+ align-content: space-around; */
+/* justify-content:space-between; */
+}
+
+.rowH2{
+	flex:0 1 auto;
+	background-color:rgb(118, 148, 133);
+	height: 100px;
+}
+.rowH3{
+	flex:1;
+	display: flex;
+	background-color: rgb(221, 70, 46);
+}
+.rowH4{
+	display: flex;
+	align-items: center;
+}
+.rowH5{
+	/* flex:1; */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.rowH6{
+	/* text-align: center; */
+	/* margin:auto; */
+}
+.rowH7{
+	justify-content: center;
+}
+.f1{
+	flex:1;
+}
+.f2{
+	flex:2;
+}
+.f3{
+	flex:3;
+}
+.f4{
+	flex:4;
+}
+.f5{
+	flex:5;
+}
+.row_wrap {
+    width: 450px;
+    margin: 0 auto;
+}
+
+.txtfield.big{
+	height: 150px;
+}
+.title_content.big{
+	height: 150px;
+}
+.title_content{
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+}
+.txtfield{
+		flex: 1;
+    background-color: white;
+    width: 300px;
+    height: 38px;
+    font-size: 13px;
+    padding: 10px;
+    box-sizing: border-box;
+}
