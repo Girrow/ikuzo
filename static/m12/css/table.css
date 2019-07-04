@@ -1,6 +1,6 @@
 body {
   font-family: "Open Sans", sans-serif;
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 table {
@@ -14,7 +14,7 @@ table {
 }
 
 table caption {
-  font-size: 1.5em;
+  font-size: 2em;
   margin: .5em 0 .75em;
 }
 
@@ -32,12 +32,17 @@ table th,
 table td {
   padding: .625em;
   text-align: center;
+  font-size: 1.2em;        /*여기가 글자크기*/
 }
 
 table th {
-  font-size: .85em;
+  font-size: 1.2em;  /*.85em;*/
   letter-spacing: .1em;
   text-transform: uppercase;
+}
+
+tr:hover{
+  background-color:  rgb(153, 153, 153);
 }
 
 @media screen and (max-width: 600px) {
@@ -69,7 +74,7 @@ table th {
   table td {
     border-bottom: 1px solid #ddd;
     display: block;
-    font-size: .8em;
+    font-size: 1.8em;
     text-align: right;
   }
 

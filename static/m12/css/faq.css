@@ -1,17 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap:200,300,400,500,700');
 
-$color0: #3D9970 ;
-$color1: #2DCB89 ;
-$color2: #ed1409 ;
+@color0: #3D9970 ;
+@color1: #2DCB89 ;
+@color2: #ed1409 ;
 
 body {
 	background-color: lighten(@color0, 10%);
 	color: darken(@color0, 20%);
-	font-family: Raleway;
-	font-size: 1.188em;
-	font-weight: 400;
+  font-family: 'Nanum Pen Script', cursive!important;
+	/* font-family: Raleway; */
+	/* font-size: 1.188em;
+	font-weight: 400; */
 	padding-bottom: 90px;
 	-webkit-font-smoothing: antialiased;
+}
+a,a:visited{
+  color:inherit;
 }
 
 h1 {
@@ -26,8 +30,8 @@ h3 {
 	-ms-transition: all 0.35s ease;
 	-o-transition: all 0.35s ease;
 	-webkit-transition: all 0.35s ease;
-	background-color: lighten(@color0, 15%);
-	border-bottom: 3px solid lighten(@color0, 2%);
+	background-color:#9dccec;
+	border-bottom: 3px solid #1b4162;
 	margin: 0;
 	margin: 0;
 	padding: 18px 15px;
@@ -35,7 +39,7 @@ h3 {
 	font-weight: 500;
 
 	&:hover {
-		background-color: lighten(@color0, 20%);
+		background-color: #9dccec;
 		color: darken(@color0, 25%);
 		cursor: pointer;
 	}
@@ -80,7 +84,7 @@ h4 {
 	font-weight: 400;
 	margin: 0 auto;
 	width: 70%;
-	border-bottom: 1px dotted lighten(@color0, 20%);
+	border-bottom: 1px dotted #2DCB89;
 	padding-bottom: 20px;
 }
 
@@ -110,7 +114,7 @@ h3:hover {
 }
 
 div.respuesta {
-	background: lighten(@color0, 2%);
+	background: #2DCB89;
 	margin-bottom: 20px;
 	line-height: 1.8em;
 
@@ -141,9 +145,9 @@ div.respuesta {
 }
 
 #cerrartodas {
-	background-color: @color2;
+	background-color:#ed1409;
 	bottom: 30px;
-	color: lighten(@color0, 100%);
+	color: #2DCB89;
 	font-size: 14px;
 	padding: 5px 10px;
 	position: fixed;

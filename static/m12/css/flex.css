@@ -148,15 +148,16 @@
 
 .center-box{
 	/* flex:1; */
+	font-family:sans-serif!important;
 	font-size: 3.5em;
 	margin: auto;
 	padding:10px 30px;
-	border-radius: 100px;
+	border-radius: 90px;
 }
 .center2-box{
 	flex:1;
 	font-size: 2em;
-	margin:auto 0;
+	align-items: center;				/*나중에 여기 꼭 보기*/
 }
 .center3-box{
 	flex:1;
@@ -164,10 +165,9 @@
 	margin:auto 0px;
 }
 .center4-box{
-	display: block;
-	flex:2;
-	margin:auto 0px;
-	text-align: center!important;
+	/* display: block; */				/*이거 넣으면 중앙정렬이 안됨*/
+	flex:3;
+	align-items: center;				/*나중에 여기 꼭 보기*/
 }
 
 .flex-container2{
@@ -208,7 +208,6 @@
 
 .rowH{
 	display: flex;
-
 	/* flex-direction:column;
 	flex-wrap: wrap;
  justify-content: space-around;

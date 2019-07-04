@@ -87,14 +87,14 @@ header{
 .textI:focus{ border: solid 2px red;}
 
 /* End wrapper */
-
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap:200,300,400,500,700');
 /* button */
 button{
+  font-family: 'Nanum Pen Script', cursive!important;
   background:#1AAB8A;
   color:#fff;
   border:none;
   position:relative;
-
 
   height:40px;
   font-size:1.6em;
