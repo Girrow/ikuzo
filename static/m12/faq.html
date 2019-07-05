@@ -50,18 +50,19 @@
 
 				} else {
 					$('#cerrartodas').hide();
-					var abiertas = $('.cerrar').length
+					var abiertas = $('.cerrar').length;
 					console.log(abiertas);
 				}
 			}); //Close Function Click
 
+			$('#cerrartodas').click(function() {
+				$('.respuesta').fadeOut(200);
+				$('h3').removeClass('cerrar');
+				$('#cerrartodas').fadeOut('fast');
+			});
 		}); //Close Function Ready
 
-		$('#cerrartodas').click(function() {
-			$('.respuesta').fadeOut(200);
-			$('h3').removeClass('cerrar');
-			$('#cerrartodas').fadeOut('fast');
-		});
+
 	</script>
 </head>
 
