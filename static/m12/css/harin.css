@@ -36,7 +36,9 @@ header{
 	color:inherit;
 }
 
-
+.saveThis,.saveThis2{
+  display: none;
+}
 /* header 끝 *************************/
 
 /* wrapper */

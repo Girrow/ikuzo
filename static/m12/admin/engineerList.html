@@ -5,10 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/flex.css">
-	<link rel="stylesheet" href="css/harin.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/flex.css">
+	<link rel="stylesheet" href="../css/harin.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<style media="screen">
 		.wrapper {
@@ -27,9 +27,6 @@
 			margin: 20px 30px;
 		}
 
-		/*
-	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
-	*/
 		@media only screen and (max-width: 760px),
 		(min-device-width: 768px) and (max-device-width: 1024px) {
 
@@ -124,7 +121,7 @@
 	</style>
 	<script>
 		$(function() {
-			$('input[name="filterCk"]').change(function() {
+			$('i반품확인[name="filterCk"]').change(function() {
 				var value = $(this).val(); // value
 				var checkId = $(this).attr('id');
 				console.log(checkId);
@@ -149,6 +146,10 @@
 					checked ? $label.css('background-color', '#0984e3') : $label.css('background-color', '#74b9ff');
 				}
 			});
+
+			$("button").click(function(){
+				location.href='engineerDetail.html';
+			});
 		});
 	</script>
 </head>
@@ -169,7 +170,7 @@
         <a href="deliveryConf.html">배송확인</a>
       </li>
       <li>
-        <a href="refundForm.html">반품신청</a>
+        <a href="refundForm.html">반품확인</a>
       </li>
       <li>
         <a href="serviceInfo.html">소개</a>
@@ -177,11 +178,6 @@
     </ul>
   </header>
 
-	<!--
-		기사 보이는 화면
- -->
-
-	<!--
 	<div class="wrapper">
 		<h2 class="wrapLogo">기사관리</h2>
 		<div class="flex-container2">
@@ -195,7 +191,7 @@
 				참 성실함<br>
 				몸을 불사질러서 일하는 타입
 			</div>
-			<div class="flex-row flex-box2" style="flex:2"><button>예약</button></div>
+			<div class="flex-row flex-box2" style="flex:2"><button>상세</button></div>
 		</div>
 
 		<div class="flex-container2">
@@ -209,7 +205,7 @@
 				참 성실함<br>
 				몸을 불사질러서 일하는 타입
 			</div>
-			<div class="flex-row flex-box2" style="flex:2"><button>예약</button></div>
+			<div class="flex-row flex-box2" style="flex:2"><button>상세</button></div>
 		</div>
 
 		<div class="flex-container2">
@@ -223,45 +219,10 @@
 				참 성실함<br>
 				몸을 불사질러서 일하는 타입
 			</div>
-			<div class="flex-row flex-box2" style="flex:2"><button>예약</button></div>
-		</div>
-
-
-	</div> -->
-
-	<!-- 기사 보이는거 끝 -->
-
-	<!-- 기사 상세보기 -->
-	<div class="wrapper">
-		<h2 class="wrapLogo">배송 상세보기</h2>
-		<div class="containerH">
-
-			<div class="rowH">
-				<div class="rowH2 rowH4">사진자리</div>
-				<div class="rowH2 rowH4"></div>
-				<div class="rowH2 rowH3 rowH4 rowH5">
-					<div class="rowH3">이름자리</div>
-					<div class="rowH3">설명하기</div>
-				</div>
-				<div class="rowH2 rowH4"><button type="button" onClick="location.href='refundForm.html'">예약</button></div>
-			</div>
-
-			<div class="rowH">
-				<div class="rowH2 rowH3">내용</div>
-			</div>
-			<div class="rowH rowH3">최근 활동 이력</div>
-			<div class="rowH">
-				<div class="rowH3 rowH7">
-					테이블 위치
-				</div>
-			</div>
-			<div class="rowH">
-				<div class="rowH3">기타 예외사항</div>
-			</div>
+			<div class="flex-row flex-box2" style="flex:2"><button>상세</button></div>
 		</div>
 	</div>
 
-	<!-- 상세보기 끝 -->
 
 	<footer class="footer-flex">
 		<div class="footer-item" style="background-color:black;">1</div>

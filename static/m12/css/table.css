@@ -45,6 +45,10 @@ tr:hover{
   background-color:  rgb(153, 153, 153);
 }
 
+tbody tr:hover{
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   table {
     border: 0;
