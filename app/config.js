@@ -12,7 +12,7 @@ module.exports = {
     },
     jdbc : {
       connectionLimit:1,
-      host:"192.168.3.169",
+      host:"192.168.29.131",
       user:"root",
       password:"1234",
       database:"test",

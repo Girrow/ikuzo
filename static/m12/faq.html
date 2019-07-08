@@ -6,10 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<!-- <link rel="stylesheet" href="css/common.css"> -->
-<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/harin.css">
-	<link rel="stylesheet" href="css/flex.css">
-	<link rel="stylesheet" href="css/faq.css">
+	<link rel="stylesheet" href="m12/css/common.css">
+	<link rel="stylesheet" href="m12/css/harin.css">
+	<link rel="stylesheet" href="m12/css/flex.css">
+	<link rel="stylesheet" href="m12/css/faq.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<style>
@@ -93,11 +93,11 @@
 	<div class="wrapper">
 		<h2 class="wrapLogo">자주 묻는 질문 FaQ</h2>
 		<div id="preguntas">
-			<h3>배송조회를 어디서 할 수 있나요?</h3>
+			<!-- <h3>배송조회를 어디서 할 수 있나요?</h3>
 			<div class="respuesta">
 				<p>1234</p>
 			</div>
-			<h3>배송조회를 해주는 기사님을 알고싶어요</h3>
+			<h3>배송을 해주는 기사님을 알고싶어요</h3>
 			<div class="respuesta">
 				<p>1234</p>
 			</div>
@@ -124,8 +124,13 @@
 			<h3>반품신청 등등등</h3>
 			<div class="respuesta">
 				<p>1234</p>
+			</div> -->
+			<% for(let j=0; j < data.length; j++){%>
+			<h3><%= data[j].question %></h3>
+			<div class="respuesta">
+				<p><%= data[j].answer %></p>
 			</div>
-
+			<% } %>
 			<a href="#" id="cerrartodas">Close all</a>
 		</div>
 	</div>

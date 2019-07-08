@@ -72,6 +72,80 @@ const server = {
                   res.render("./db.html", {data :resultList});
                 });
             });
+
+            // 여기서부터
+            라우터.route("/index/:id/update").get((req, res) => {
+                server.DB("select * from notice where no ="+req.params.id, [], (err, resultList) => {
+                  if(err){
+                    console.log(err);
+                    res.redirect("/main");
+                    return;
+                  }
+
+                  console.log(resultList);
+                  res.render("m12/noticeWrite.html", {data :resultList});
+                });
+            })
+            .post((req, res) => {
+                let a=req.body.title;
+                let b=req.body.content;
+                console.log(a+b);
+                server.DB("UPDATE notice SET title = ? , content = ? where no = ?", [req.body.title,req.body.content,req.params.id], (err, resultList) => {
+                  if(err){
+                    console.log(err);
+                    res.redirect("/main");
+                    return;
+                  }
+                  console.log(resultList);
+                  res.redirect("/index");
+                });
+            });
+            라우터.route("/index/:id/delete").get((req, res) => {
+                server.DB("delete from notice where no ="+req.params.id, [], (err, resultList) => {
+                  if(err){
+                    console.log(err);
+                    res.redirect("/main");
+                    return;
+                  }
+
+                  console.log(resultList);
+                  res.redirect("/index");
+                });
+            });
+            라우터.route("/index/:id").get((req, res) => {
+                server.DB("select * from notice where no ="+req.params.id, [], (err, resultList) => {
+                  if(err){
+                    console.log(err);
+                    res.redirect("/main");
+                    return;
+                  }
+
+                  console.log(resultList);
+                  res.render("m12/noticeDetail.html", {data :resultList});
+                });
+            });
+            라우터.route("/index").get((req, res) => {
+                server.DB("select * from notice order by no desc", [], (err, resultList) => {
+                  if(err){
+                      res.redirect("/main");
+                      return;
+                  }
+
+                  console.log(resultList);
+                  res.render("m12/index.html", {data :resultList});
+                });
+            });
+            라우터.route("/faq").get((req, res) => {
+                server.DB("select * from faq", [], (err, resultList) => {
+                  if(err){
+                      res.redirect("/main");
+                      return;
+                  }
+
+                  console.log(resultList);
+                  res.render("m12/faq.html", {data :resultList});
+                });
+            });
             // 라우터.route("/m15/faq").get((req, res) => {
             //     server.DB("select title, content from FAQ", [], (err, resultList) => {
             //       if(err){

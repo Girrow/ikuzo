@@ -92,23 +92,24 @@
 	<div class="wrapper">
 		<h2 class="wrapLogo">글 상세보기</h2>
     <div class="flex_container2">
-      <div class="f1 rowH" style="justify-content:flex-end;">
-        <button id="returnList">목록</button><button id="updateThis">수정</button><button id="deleteThis">삭제</button>
-      </div>
+  <form class="" action="/index/<%=data[0].no %>/update" method="post">
+
+
       <div class="f2 rowH" style="margin:10px 10px;">
         <div class="color1" style="padding:0px 10px;">제목</div>
-        <div class="f1 color2"><input type="text" style="width:100%" value="<%=data[0].title %>" disabled></div>
+        <div class="f1 color2"><input name="title" type="text" style="width:100%" value="<%=data[0].title %>"></div>
       </div>
       <div class="f1 rowH">
         <div class="color1" style="padding:0px 10px;">내용</div>
       </div>
       <div class="f1 rowH">
-        <textarea name="name" style="width:100%" rows="20" disabled> <%=data[0].content %></textarea>
+        <textarea name="content" style="width:100%" rows="20"> <%=data[0].content %></textarea>
       </div>
       <br>
-      <div class="f1 rowH color3">댓글</div>
-      <div class="f1 rowH color4" style="height:100px;">1
+      <div class="f1 rowH" style="justify-content:flex-end;">
+        <button type="submit">수정</button><button id="deleteThis">취소</button>
       </div>
+    </form>
     </div>
 	</div>
 
