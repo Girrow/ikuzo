@@ -54,25 +54,31 @@
 					checked ? $label.css('background-color', '#0984e3') : $label.css('background-color', '#74b9ff');
 				}
 			});
-      $(".row").click(function(){
-        $('.wrapper').css('display','none');
-        $('.saveThis').css('display','block');
-				console.log($(this).children("span").text());
-      });
-      $("#returnList").click(function(){
-        location.href="inquiryTable.html";
-      });
-      $(".writeForm").click(function(){
-        $('.wrapper').css('display','none');
-        $('.saveThis2').css('display','block');
-      });
-      $("#writeForm2").click(function(){
+			$(".row").click(function() {
+				$('.wrapper').css('display', 'none');
+				$('.saveThis').css('display', 'block');
+				var tic = $(this).children("span").text();
+				location.hash = `${$(this).children("span").text()}`;
+				console.log($(this).children("div"));
+				$(".putHere1").val($(this).children("div")[0].innerHTML);
+				$(".putHere2").val($(this).children("p")[0].innerHTML);
+				// $(".putHere2").attr("value")="1234";
 
-      });
 
-      $("#cancelTo").click(()=>{
-        location.href="inquiryTable.html";
-      });
+			});
+			$("#returnList").click(function() {
+				location.href = "/inquiry";
+			});
+			$(".writeForm").click(function() {
+				$('.wrapper').css('display', 'none');
+				$('.saveThis2').css('display', 'block');
+			});
+			$("#writeForm2").click(function() {
+			});
+
+			$("#cancelTo").click(() => {
+				location.href = "/inquiry";
+			});
 		});
 	</script>
 </head>
@@ -147,25 +153,27 @@
 	<!-- 게시판 글쓰기 -->
 
 	<div class="wrapper flex-container_them1 saveThis2">
-  <h2 class="wrapLogo">문의 글 작성하기</h2>
-  <div class=" input-flex">
-    <span class="flex-solo">제목</span>
-    <input type="text"/>
-  </div>
+		<form action="/inquiry/add" method="POST">
+		<h2 class="wrapLogo">문의 글 작성하기</h2>
+		<div class=" input-flex">
+			<span class="flex-solo">제목</span>
+			<input class="putHere1" type="text" name="title">
+		</div>
 
-  <div class="input-flex">
-    <span class="flex-solo">내용</span>
-  </div>
+		<div class="input-flex">
+			<span class="flex-solo">내용</span>
+		</div>
 
-  <div class="input-flex flex-height">
-    <textarea class="flex-textarea" name="" id=""></textarea>
-  </div>
+		<div class="input-flex flex-height">
+			<textarea class="flex-textarea putHere2" name="content" id=""></textarea>
+		</div>
 
-  <div class="input-flex flex-temp1">
-    <button class="flex-right" id="writeForm2">작성하기</button>
-    <button class="flex-right" id="cancelTo">취소</button>
-  </div>
-</div>
+		<div class="input-flex flex-temp1">
+			<button type="submit" class="flex-right" id="writeForm2">작성하기</button>
+			<button class="flex-right" id="cancelTo">취소</button>
+		</div>
+		</form>
+	</div>
 
 	<!-- 게시판 글쓰기 끝-->
 	<div class="wrapper saveThis">
@@ -174,13 +182,13 @@
 			<div class="f1 rowH" style="justify-content:flex-end;"><button id="returnList">목록</button></div>
 			<div class="f2 rowH" style="margin:10px 10px;">
 				<div class="color1" style="padding:0px 10px;">제목</div>
-				<div class="f1 color2"><input type="text" style="width:100%" disabled></div>
+				<div class="f1 color2"><input class="putHere1" type="text" style="width:100%" value="" disabled></div>
 			</div>
 			<div class="f1 rowH">
 				<div class="color1" style="padding:0px 10px;">내용</div>
 			</div>
 			<div class="f1 rowH">
-				<textarea name="name" style="width:100%" rows="20" disabled></textarea>
+				<textarea class="putHere2" name="name" style="width:100%" rows="20" disabled></textarea>
 			</div>
 			<br>
 			<div class="f1 rowH color3">댓글</div>
@@ -217,21 +225,12 @@
 
 						<% for(let j=0;j < data.length;j++){%>
 						<div class="row">
-							<div class="cell" data-title="제목">
-								<%=data[j].title%>
-							</div>
-							<div class="cell" data-title="문의사항">
-								<%=data[j].subtitle%>
-							</div>
-							<div class="cell" data-title="아이디">
-								<%=data[j].id%>
-							</div>
-							<div class="cell" data-title="작성일자">
-								<%=data[j].date%>
-							</div>
-							<div class="cell" data-title="답변">
-								<%=data[j].answerYn%>
-							</div>
+							<div class="cell" data-title="제목"><%=data[j].title%></div>
+							<div class="cell" data-title="문의사항"><%=data[j].subtitle%></div>
+							<div class="cell" data-title="아이디"><%=data[j].id%></div>
+							<div class="cell" data-title="작성일자"><%=data[j].date%></div>
+							<div class="cell" data-title="답변"><%=data[j].answerYn%></div>
+							<p style="display:none;"><%=data[j].content%></p>
 							<span style="display:none;"><%=data[j].no%></span>
 						</div>
 						<%}%>

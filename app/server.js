@@ -17,6 +17,7 @@ const 서버 = require("express"),
       로그 = require("./log.js"),
       설정 = require("./config.js"),
       디비 = require('mariadb'),
+      harin= require('./harin.js'),
       앱 = 서버();
 
 const server = {
@@ -74,6 +75,24 @@ const server = {
             });
 
             // 여기서부터
+            라우터.route("/inquiry/add").post((req, res) => {
+                let a=req.body.title;
+                let b=req.body.content;
+                console.log("==============================================");
+                console.log("여기서부터"+a);
+                console.log(b);
+                console.log(req.params.id);
+                server.DB("")
+                server.DB("insert into inquiry(title,content,id,subtitle,answerYn) values(?,?,?,?,?)", [req.body.title,req.body.content,"harin","1대1문의","N"], (err, resultList) => {
+                  if(err){
+                    console.log(err);
+                    res.redirect("/main");
+                    return;
+                  }
+                  console.log(resultList);
+                  res.redirect("/inquiry");
+                });
+            });
             라우터.route("/index/:id/update").get((req, res) => {
                 server.DB("select * from notice where no ="+req.params.id, [], (err, resultList) => {
                   if(err){
@@ -161,7 +180,7 @@ const server = {
                 });
             });
             라우터.route("/deliveryConf").get((req, res) => {
-                server.DB("select * from inquiry", [], (err, resultList) => {
+                server.DB("select * from deliveryConf", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -169,6 +188,16 @@ const server = {
 
                   console.log(resultList);
                   res.render("m12/deliveryConf.html", {data :resultList});
+                });
+            });
+            라우터.route("/deliveryDetail/:id").get((req, res) => {
+                server.DB("select * from deliveryConf", [], (err, resultList) => {
+                  if(err){
+                      res.redirect("/main");
+                      return;
+                  }
+                  console.log(resultList);
+                  res.render("m12/engineerList.html", {data :resultList});
                 });
             });
             라우터.route("/refundForm").get((req, res) => {
@@ -197,6 +226,7 @@ const server = {
             //     });
             // });
             앱.use("/", 라우터);
+            앱.use("/harin", harin);
             server.STEP_2();
         },
         STEP_2 : () => {
