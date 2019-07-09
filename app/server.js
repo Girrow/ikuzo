@@ -89,7 +89,10 @@ const server = {
             .post((req, res) => {
                 let a=req.body.title;
                 let b=req.body.content;
-                console.log(a+b);
+                console.log("==============================================");
+                console.log("여기서부터"+a);
+                console.log(b);
+                console.log(req.params.id);
                 server.DB("UPDATE notice SET title = ? , content = ? where no = ?", [req.body.title,req.body.content,req.params.id], (err, resultList) => {
                   if(err){
                     console.log(err);
@@ -97,7 +100,7 @@ const server = {
                     return;
                   }
                   console.log(resultList);
-                  res.redirect("/index");
+                  res.redirect("/index/"+req.params.id);
                 });
             });
             라우터.route("/index/:id/delete").get((req, res) => {
@@ -145,6 +148,42 @@ const server = {
                   console.log(resultList);
                   res.render("m12/faq.html", {data :resultList});
                 });
+            });
+            라우터.route("/inquiry").get((req, res) => {
+                server.DB("select * from inquiry order by no desc", [], (err, resultList) => {
+                  if(err){
+                      res.redirect("/main");
+                      return;
+                  }
+
+                  console.log(resultList);
+                  res.render("m12/inquiryTable.html", {data :resultList});
+                });
+            });
+            라우터.route("/deliveryConf").get((req, res) => {
+                server.DB("select * from inquiry", [], (err, resultList) => {
+                  if(err){
+                      res.redirect("/main");
+                      return;
+                  }
+
+                  console.log(resultList);
+                  res.render("m12/deliveryConf.html", {data :resultList});
+                });
+            });
+            라우터.route("/refundForm").get((req, res) => {
+                server.DB("select * from inquiry", [], (err, resultList) => {
+                  if(err){
+                      res.redirect("/main");
+                      return;
+                  }
+
+                  console.log(resultList);
+                  res.render("m12/refundForm.html", {data :resultList});
+                });
+            });
+            라우터.route("/serviceInfo").get((req, res) => {
+                  res.render("m12/serviceInfo.html");
             });
             // 라우터.route("/m15/faq").get((req, res) => {
             //     server.DB("select title, content from FAQ", [], (err, resultList) => {

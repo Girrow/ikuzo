@@ -5,10 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/harin.css">
-	<link rel="stylesheet" href="css/flex.css">
+	<link rel="stylesheet" href="/m12/css/main.css">
+	<link rel="stylesheet" href="/m12/css/common.css">
+	<link rel="stylesheet" href="/m12/css/harin.css">
+	<link rel="stylesheet" href="/m12/css/flex.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<style media="screen">
 		.wrapper {
@@ -57,6 +57,7 @@
       $(".row").click(function(){
         $('.wrapper').css('display','none');
         $('.saveThis').css('display','block');
+				console.log($(this).children("span").text());
       });
       $("#returnList").click(function(){
         location.href="inquiryTable.html";
@@ -80,22 +81,22 @@
 	<header class="color2">
 		<ul class="hlist">
 			<li>
-				<a href="index.html">공지사항</a>
+				<a href="/index">공지사항</a>
 			</li>
 			<li>
-				<a href="faq.html">FAQ</a>
+				<a href="/faq">FAQ</a>
 			</li>
 			<li>
-				<a href="inquiryTable.html">문의하기</a>
+				<a href="/inquiry">문의하기</a>
 			</li>
 			<li>
-				<a href="deliveryConf.html">배송확인</a>
+				<a href="/deliveryConf">배송확인</a>
 			</li>
 			<li>
-				<a href="refundForm.html">반품신청</a>
+				<a href="/refundForm">반품신청</a>
 			</li>
 			<li>
-				<a href="serviceInfo.html">소개</a>
+				<a href="/serviceInfo">소개</a>
 			</li>
 		</ul>
 	</header>
@@ -201,7 +202,7 @@
 								제목
 							</div>
 							<div class="cell">
-								문의사항
+								카테고리
 							</div>
 							<div class="cell">
 								아이디
@@ -210,63 +211,31 @@
 								작성일자
 							</div>
 							<div class="cell">
-								답변
+								답변여부
 							</div>
 						</div>
 
+						<% for(let j=0;j < data.length;j++){%>
 						<div class="row">
 							<div class="cell" data-title="제목">
-								Q4. 어떻게 하죠?
+								<%=data[j].title%>
 							</div>
 							<div class="cell" data-title="문의사항">
-								1:1 문의
+								<%=data[j].subtitle%>
 							</div>
 							<div class="cell" data-title="아이디">
-								admin
+								<%=data[j].id%>
 							</div>
 							<div class="cell" data-title="작성일자">
-								2019-06-26-17:55
-							</div>
-							<div class="cell" data-title="답변" style="min-width:70px;">
-								N
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="cell" data-title="제목">
-								Q1. 어떻게 하죠?
-							</div>
-							<div class="cell" data-title="문의사항">
-								1:1 문의
-							</div>
-							<div class="cell" data-title="아이디">
-								admin
-							</div>
-							<div class="cell" data-title="작성일자">
-								2019-06-26-17:55
+								<%=data[j].date%>
 							</div>
 							<div class="cell" data-title="답변">
-								N
+								<%=data[j].answerYn%>
 							</div>
+							<span style="display:none;"><%=data[j].no%></span>
 						</div>
-						<div class="row">
-							<div class="cell" data-title="제목">
-								Q2. 어떻게 하죠?
-							</div>
-							<div class="cell" data-title="문의사항">
-								상품 상세 질문
-							</div>
-							<div class="cell" data-title="아이디">
-								admin
-							</div>
-							<div class="cell" data-title="작성일자">
-								2019-06-26-17:55
-							</div>
-							<div class="cell" data-title="답변">
-								N
-							</div>
-						</div>
-						<div class="row">
+						<%}%>
+						<!-- <div class="row">
 							<div class="cell" data-title="제목">
 								Q3. 어떻게 하죠?
 							</div>
@@ -282,7 +251,7 @@
 							<div class="cell" data-title="답변">
 								N
 							</div>
-						</div>
+						</div> -->
 
 
 					</div>
