@@ -83,7 +83,7 @@ const server = {
                 console.log(b);
                 console.log(req.params.id);
                 server.DB("")
-                server.DB("insert into inquiry(title,content,id,subtitle,answerYn) values(?,?,?,?,?)", [req.body.title,req.body.content,"harin","1대1문의","N"], (err, resultList) => {
+                server.DB("insert into notice(title,content,register,writeType) values(?,?,?,?)", [req.body.title,req.body.content,"harin",2], (err, resultList) => {
                   if(err){
                     console.log(err);
                     res.redirect("/main");
@@ -91,6 +91,25 @@ const server = {
                   }
                   console.log(resultList);
                   res.redirect("/inquiry");
+                });
+            });
+            라우터.route("/index/writeNew").get((req, res) => {
+                  res.render("m12/noticeWrite2.html");
+            }).post((req, res) => {
+                let a=req.body.title;
+                let b=req.body.content;
+                console.log("==============================================");
+                console.log("여기서부터"+a);
+                console.log(b);
+                console.log(req.params.id);
+                server.DB("insert into notice(writeType,subtitle,title,content,register) values(1,'서비스 뉴스',?,?,'harin')", [req.body.title,req.body.content], (err, resultList) => {
+                  if(err){
+                    console.log(err);
+                    res.redirect("/main");
+                    return;
+                  }
+                  console.log(resultList);
+                  res.redirect("/index");
                 });
             });
             라우터.route("/index/:id/update").get((req, res) => {
@@ -146,8 +165,9 @@ const server = {
                   res.render("m12/noticeDetail.html", {data :resultList});
                 });
             });
+
             라우터.route("/index").get((req, res) => {
-                server.DB("select * from notice order by no desc", [], (err, resultList) => {
+                server.DB("select * from notice where writeType=1 order by no desc", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -169,7 +189,7 @@ const server = {
                 });
             });
             라우터.route("/inquiry").get((req, res) => {
-                server.DB("select * from inquiry order by no desc", [], (err, resultList) => {
+                server.DB("select * from notice where writeType=2 order by no desc", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -180,7 +200,7 @@ const server = {
                 });
             });
             라우터.route("/deliveryConf").get((req, res) => {
-                server.DB("select * from deliveryConf", [], (err, resultList) => {
+                server.DB("select * from delivery", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -191,17 +211,23 @@ const server = {
                 });
             });
             라우터.route("/deliveryDetail/:id").get((req, res) => {
-                server.DB("select * from deliveryConf", [], (err, resultList) => {
+                server.DB(`select a.*
+                             from orderList as a
+                            inner join delivery as b
+                               on (
+                                   b.inNo=${req.params.id}
+                               and b.inNo = a.orderNo)
+                `, [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
                   }
-                  console.log(resultList);
+                  console.log("111111"+JSON.stringify(resultList));
                   res.render("m12/engineerList.html", {data :resultList});
                 });
             });
             라우터.route("/refundForm").get((req, res) => {
-                server.DB("select * from inquiry", [], (err, resultList) => {
+                server.DB("select * from returnList", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;

@@ -1,3 +1,9 @@
+insert into delivery(inNo,writer) values(10002,"test-dump2");
+INSERT INTO `hole`.`orderList` (`orderNo`, `registerNo`, `object`, `price`, `amount`, `reg_date`, `delY`) VALUES ('10002', '1', 'C1', '1200', '5', '2019-07-10', '0');
+INSERT INTO `hole`.`orderList` (`orderNo`, `registerNo`, `object`, `price`, `amount`, `reg_date`, `delY`) VALUES ('10001', '1', 'B1', '700', '3', '2019-07-10', '0');
+
+--
+
 CREATE table faq(
 	no int primary key auto_increment,
 	question varchar(100),
@@ -60,8 +66,8 @@ CREATE TABLE `notice` (
 	`subtitle` VARCHAR(10) NULL DEFAULT NULL COMMENT '말머리',
 	`title` VARCHAR(50) NULL DEFAULT NULL COMMENT '제목',
 	`content` VARCHAR(200) NULL DEFAULT NULL COMMENT '내용',
-	`views` INT(11) NOT NULL COMMENT '조회수',
-	`delYn` INT(11) NOT NULL COMMENT '삭제여부',
+	`views` INT(11) NOT NULL DEFAULT '0' COMMENT '조회수',
+	`delYn` INT(11) NOT NULL DEFAULT '0' COMMENT '삭제여부',
 	`register` VARCHAR(50) NULL DEFAULT NULL COMMENT '등록인',
 	`registDate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
 	`modifier` VARCHAR(20) NULL DEFAULT NULL COMMENT '수정인',
@@ -71,9 +77,8 @@ CREATE TABLE `notice` (
 COMMENT='공지사항'
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=3
+AUTO_INCREMENT=5
 ;
-
 
 CREATE TABLE `noticeCo` (
 	`no` INT(11) NOT NULL AUTO_INCREMENT COMMENT '번호',

@@ -53,14 +53,14 @@
 				<tbody class="ttbody">
 					<% for(let j=0;j< data.length;j++){%>
 					<tr>
-						<td data-label="Account"><%=data[j].deliveryNo%></td>
-						<td data-label="Due Date"><%=data[j].id%></td>
-						<td data-label="Amount"><%=data[j].nowStatus%></td>
-						<td data-label="Period"><%=data[j].date%></td>
-						<td data-label="Period"><button type="button" onClick="location.href='deliveryDetail/<%=data[j].deliveryNo%>'">자세히 보기</button></td>
+						<td data-label="Account"><%=data[j].inNo%></td>
+						<td data-label="Due Date"><%=data[j].writer%></td>
+						<td data-label="Amount"><%=data[j].nowStatus%>1</td>
+						<td data-label="Period"><%=data[j].deliDate%></td>
+						<td data-label="Period"><button type="button" onClick="location.href='deliveryDetail/<%=data[j].inNo%>'">자세히 보기</button></td>
 					</tr>
 					<%}%>
-					<tr>
+					<!-- <tr>
 						<td scope="row" data-label="Account">10015</td>
 						<td data-label="Due Date">♚♚히어로즈 오브 더 스☆톰♚♚가입시$$ 특정조건  즉시이동</td>
 						<td data-label="Amount">배송중</td>
@@ -80,7 +80,7 @@
 						<td data-label="Amount">환불</td>
 						<td data-label="Period">2019/07/04</td>
 						<td data-label="Period"><button type="button" onClick="location.href='engineerDetail.html'">자세히 보기</button></td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 		</div>

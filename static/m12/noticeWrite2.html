@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/m12/css/main.css">
+		<link rel="stylesheet" href="/m12/css/common.css">
+		<link rel="stylesheet" href="/m12/css/harin.css">
+		<link rel="stylesheet" href="/m12/css/flex.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <style media="screen">
+        .wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+				.input-flex2 {
+						display: flex;
+						justify-content: center;
+						/* align-content: flex-start; */
+						height: 40px;
+				}
+				.input-flex2>button{
+					margin:20px 30px;
+				}
+    </style>
+    <script>
+        $(function() {
+            $('input[name="filterCk"]').change(function() {
+                var value = $(this).val(); // value
+                var checkId=$(this).attr('id');
+                console.log(checkId);
+                var checked = $(this).prop('checked'); // checked 상태 (true, false)
+                var $label = $(this).next();
+                if(checkId=='filterCheck_1'){
+
+                    if(checked){
+                        $('input[name="filterCk"]').each(function(){
+                            $(this).prop('checked', true);
+                            $(this).next().css('background-color', '#0984e3');
+                        })
+                    }else{
+                        $('input[name="filterCk"]').each(function(){
+                            $(this).prop('checked',false);
+                            $(this).next().css('background-color', '#74b9ff')
+                        })
+                    }
+                    // checked ?$('.filter-div').prop('checked',true) :  $('.filter-div').prop('checked',false)
+                    // checked ?$('label').css('background-color', 'rgb(42, 94, 230)') : $('label').css('background-color', 'rgb(180, 205, 224)')
+                }else{
+                    checked ? $label.css('background-color', '#0984e3') : $label.css('background-color', '#74b9ff');
+                }
+            });
+            $("#returnList").click(function(){
+              location.href="/index"
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+  <header class="color2">
+		<ul class="hlist">
+			<li>
+				<a href="/index">공지사항</a>
+			</li>
+			<li>
+				<a href="/faq">FAQ</a>
+			</li>
+			<li>
+				<a href="/inquiry">문의하기</a>
+			</li>
+			<li>
+				<a href="/deliveryConf">배송확인</a>
+			</li>
+			<li>
+				<a href="/refundForm">반품신청</a>
+			</li>
+			<li>
+				<a href="/serviceInfo">소개</a>
+			</li>
+		</ul>
+	</header>
+
+	<div class="wrapper">
+		<h2 class="wrapLogo">글 상세보기</h2>
+    <div class="flex_container2">
+  <form action="/index/writeNew" method="POST">
+
+
+      <div class="f2 rowH" style="margin:10px 10px;">
+        <div class="color1" style="padding:0px 10px;">제목</div>
+        <div class="f1 color2"><input name="title" type="text" style="width:100%"></div>
+      </div>
+      <div class="f1 rowH">
+        <div class="color1" style="padding:0px 10px;">내용</div>
+      </div>
+      <div class="f1 rowH">
+        <textarea name="content" style="width:100%" rows="20"></textarea>
+      </div>
+      <br>
+      <div class="f1 rowH" style="justify-content:flex-end;">
+        <button type="submit">입력</button><button id="deleteThis">취소</button>
+      </div>
+    </form>
+    </div>
+	</div>
+
+
+
+
+    <footer class="footer-flex">
+        <div class="footer-item" style="background-color:black;">1</div>
+    </footer>
+</body>
+
+</html>

@@ -61,6 +61,10 @@
 				console.log($(this).children("td").eq(0).text());
 				location.href = `/index/${$(this).children("td").eq(0).text()}`
 			});
+
+			$("#writeNotice").click(function(){
+				location.href="index/writeNew";
+			});
 		});
 	</script>
 </head>
@@ -97,6 +101,8 @@
 			<input type="text" class="f5" placeholder="제목 검색" />
 			<span class="f1"></span>
 			<button class="f1">검색</button>
+			<span class="f1"></span>
+			<button id="writeNotice" class="f1">글 작성</button>
 		</div>
 		<div class="flex-container2">
 			<table class="f1">
@@ -115,7 +121,7 @@
 						<td data-label="작성자"><%=data[j].no%></td>
 						<td data-label="제목"><span style="background-color:rgb(165, 133, 172);padding:2px 2px;"><%=data[j].subtitle%> </span></td>
 						<td data-label="내용"><%=data[j].title%></td>
-						<td data-label="작성일시"><%=data[j].date%></td>
+						<td data-label="작성일시"><%=data[j].registDate%></td>
 					</tr>
 					<%}%>
 				</tbody>
