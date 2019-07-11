@@ -20,7 +20,7 @@ const 서버 = require("express"),
       harin= require('./harin.js'),
       앱 = 서버();
 
-const server = {
+var server = {
         RUN : () => {
             // 앱 설정 하기.
             로그.info(">> Server init");
@@ -83,7 +83,7 @@ const server = {
                 console.log(b);
                 console.log(req.params.id);
                 server.DB("")
-                server.DB("insert into notice(title,content,register,writeType) values(?,?,?,?)", [req.body.title,req.body.content,"harin",2], (err, resultList) => {
+                server.DB("insert into s_notices(title,content,register,type_flag) values(?,?,?,?)", [req.body.title,req.body.content,"harin",2], (err, resultList) => {
                   if(err){
                     console.log(err);
                     res.redirect("/main");
@@ -102,7 +102,7 @@ const server = {
                 console.log("여기서부터"+a);
                 console.log(b);
                 console.log(req.params.id);
-                server.DB("insert into notice(writeType,subtitle,title,content,register) values(1,'서비스 뉴스',?,?,'harin')", [req.body.title,req.body.content], (err, resultList) => {
+                server.DB("insert into s_notices(type_flag,subtitle,title,content,register) values(1,'서비스 뉴스',?,?,'harin')", [req.body.title,req.body.content], (err, resultList) => {
                   if(err){
                     console.log(err);
                     res.redirect("/main");
@@ -113,7 +113,7 @@ const server = {
                 });
             });
             라우터.route("/index/:id/update").get((req, res) => {
-                server.DB("select * from notice where no ="+req.params.id, [], (err, resultList) => {
+                server.DB("select * from s_notices where notice_id ="+req.params.id, [], (err, resultList) => {
                   if(err){
                     console.log(err);
                     res.redirect("/main");
@@ -123,6 +123,7 @@ const server = {
                   console.log(resultList);
                   res.render("m12/noticeWrite.html", {data :resultList});
                 });
+
             })
             .post((req, res) => {
                 let a=req.body.title;
@@ -131,7 +132,7 @@ const server = {
                 console.log("여기서부터"+a);
                 console.log(b);
                 console.log(req.params.id);
-                server.DB("UPDATE notice SET title = ? , content = ? where no = ?", [req.body.title,req.body.content,req.params.id], (err, resultList) => {
+                server.DB("UPDATE s_notices SET title = ? , content = ? where notice_id = ?", [req.body.title,req.body.content,req.params.id], (err, resultList) => {
                   if(err){
                     console.log(err);
                     res.redirect("/main");
@@ -142,7 +143,7 @@ const server = {
                 });
             });
             라우터.route("/index/:id/delete").get((req, res) => {
-                server.DB("delete from notice where no ="+req.params.id, [], (err, resultList) => {
+                server.DB("delete from s_notices where notice_id ="+req.params.id, [], (err, resultList) => {
                   if(err){
                     console.log(err);
                     res.redirect("/main");
@@ -154,20 +155,20 @@ const server = {
                 });
             });
             라우터.route("/index/:id").get((req, res) => {
-                server.DB("select * from notice where no ="+req.params.id, [], (err, resultList) => {
+                server.DB("select * from s_notices where notice_id ="+req.params.id, [], (err, resultList) => {
                   if(err){
                     console.log(err);
                     res.redirect("/main");
                     return;
                   }
 
-                  console.log(resultList);
+                  // console.log(resultList);
                   res.render("m12/noticeDetail.html", {data :resultList});
                 });
             });
 
             라우터.route("/index").get((req, res) => {
-                server.DB("select * from notice where writeType=1 order by no desc", [], (err, resultList) => {
+                server.DB("select * from s_notices where type_flag=1 order by notice_id desc", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -178,7 +179,7 @@ const server = {
                 });
             });
             라우터.route("/faq").get((req, res) => {
-                server.DB("select * from faq", [], (err, resultList) => {
+                server.DB("select * from s_faqs", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -189,7 +190,7 @@ const server = {
                 });
             });
             라우터.route("/inquiry").get((req, res) => {
-                server.DB("select * from notice where writeType=2 order by no desc", [], (err, resultList) => {
+                server.DB("select * from s_notices where type_flag=2 order by notice_id desc", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -200,7 +201,7 @@ const server = {
                 });
             });
             라우터.route("/deliveryConf").get((req, res) => {
-                server.DB("select * from delivery", [], (err, resultList) => {
+                server.DB("select * from b_sales", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -212,22 +213,22 @@ const server = {
             });
             라우터.route("/deliveryDetail/:id").get((req, res) => {
                 server.DB(`select a.*
-                             from orderList as a
-                            inner join delivery as b
+                             from b_sales_and_orders as a
+                            inner join b_sales as b
                                on (
-                                   b.inNo=${req.params.id}
-                               and b.inNo = a.orderNo)
+                                   b.sale_id=${req.params.id}
+                               and b.sale_id = a.sale_id)
                 `, [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
                   }
-                  console.log("111111"+JSON.stringify(resultList));
+                  console.log(JSON.stringify(resultList));
                   res.render("m12/engineerList.html", {data :resultList});
                 });
             });
             라우터.route("/refundForm").get((req, res) => {
-                server.DB("select * from returnList", [], (err, resultList) => {
+                server.DB("select * from s_returns", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;
@@ -240,17 +241,19 @@ const server = {
             라우터.route("/serviceInfo").get((req, res) => {
                   res.render("m12/serviceInfo.html");
             });
-            // 라우터.route("/m15/faq").get((req, res) => {
-            //     server.DB("select title, content from FAQ", [], (err, resultList) => {
-            //       if(err){
-            //           res.redirect("/main");
-            //           return;
-            //       }
-            //       console.log("1234");
-            //       console.log(resultList);
-            //       res.render("./m15/faq.html", {data :resultList});
-            //     });
-            // });
+
+
+            라우터.route("/m15/faq").get((req, res) => {
+                server.DB("select title, content from FAQ", [], (err, resultList) => {
+                  if(err){
+                      res.redirect("/main");
+                      return;
+                  }
+                  console.log("1234");
+                  console.log(resultList);
+                  res.render("./m15/faq.html", {data :resultList});
+                });
+            });
             앱.use("/", 라우터);
             앱.use("/harin", harin);
             server.STEP_2();

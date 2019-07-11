@@ -56,10 +56,10 @@
               location.href="/index"
             });
             $("#updateThis").click(function(){
-              location.href="/index/<%=data[0].no %>/update"
+              location.href="/index/<%=data[0].notice_id %>/update"
             });
             $("#deleteThis").click(function(){
-              location.href="/index/<%=data[0].no %>/delete"
+              location.href="/index/<%=data[0].notice_id %>/delete"
             });
         });
     </script>
@@ -92,7 +92,7 @@
 	<div class="wrapper">
 		<h2 class="wrapLogo">글 상세보기</h2>
     <div class="flex_container2">
-  <form action="/index/<%=data[0].no %>/update" method="POST">
+  <form action="/index/<%=data[0].notice_id %>/update" method="POST">
 
 
       <div class="f2 rowH" style="margin:10px 10px;">
