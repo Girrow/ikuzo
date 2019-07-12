@@ -24,10 +24,13 @@ router.route("/noticeDetail/:id").post((req, res) => {
         res.redirect("/main");
         return;
     }
-    var datee={
-      aa:"1234"
-    }
-    res.send({ab:datee});
+    server.DB("select * from s_notices_comments where notice_id = ?", [req.params.id], (err, resultList2) => {
+      if(err){
+          res.redirect("/main");
+          return;
+      }
+      res.send({data:resultList2});
+    });
     // console.log(resultList);
     // res.render("m12/index.html", {data :resultList});
   });

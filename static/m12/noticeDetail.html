@@ -33,15 +33,23 @@
 				let x = $("#push1")[0].innerHTML;
 				let z = $("#push2").val();
 				$.ajax({
-					url: '/harin/noticeDetail/'+location.pathname.split("/")[2], //request 보낼 서버의 경로
+					url: '/harin/noticeDetail/' + location.pathname.split("/")[2], //request 보낼 서버의 경로
 					type: 'post', // 메소드(get, post, put 등)
 					data: {
-						'id':x,
-            'content':z,
-            'numb':location.pathname.split("/")[2]
+						'id': x,
+						'content': z,
+						'numb': location.pathname.split("/")[2]
 					}, //보낼 데이터
 					success: function(data) {
-            console.log("data:"+data["ab"].aa);
+						// console.log(data);
+						var html = "";
+						for (let j = 0; j < data.data.length; j++) {
+							html += `<span class="color1">${data.data[j].register}<span>&nbsp` ;
+							html += `<span class="color2">${data.data[j].content}<span><br>`;
+						}
+
+						// console.log(data.data);
+						$("#comments").empty().append(html);
 
 						//서버로부터 정상적으로 응답이 왔을 때 실행
 					},
@@ -106,7 +114,16 @@
 				<textarea name="name" style="width:100%" rows="20" disabled> <%=data[0].content %></textarea>
 			</div>
 			<br>
+
 			<div class="f1 rowH color3">댓글</div>
+			<div id="comments">
+			<% for(let j=0;j< data2.length;j++){%>
+
+				<span class="color1"><%=data2[j].register%></span>
+				<span class="color2"><%=data2[j].content%></span><br>
+
+			<%}%>
+			</div>
 			<div class="f1 rowH color4" style="height:80px;align-items:center!important;">
 				<span class="f1">
 					<button id="push1">이름</button>

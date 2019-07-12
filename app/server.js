@@ -161,9 +161,16 @@ var server = {
                     res.redirect("/main");
                     return;
                   }
-
+                  server.DB("select * from s_notices_comments where notice_id = ?", [req.params.id], (err, resultList2) => {
+                    if(err){
+                        res.redirect("/main");
+                        return;
+                    }
+                    res.render("m12/noticeDetail.html", {data :resultList,data2:resultList2});
+                    // res.send({});
+                  });
                   // console.log(resultList);
-                  res.render("m12/noticeDetail.html", {data :resultList});
+                  // res.render("m12/noticeDetail.html", {data :resultList});
                 });
             });
 
