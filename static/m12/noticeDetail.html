@@ -41,13 +41,17 @@
 						'numb': location.pathname.split("/")[2]
 					}, //보낼 데이터
 					success: function(data) {
-						// console.log(data);
-						var html = "";
+						console.log(data);
+						var html = '';
 						for (let j = 0; j < data.data.length; j++) {
-							html += `<span class="color1">${data.data[j].register}<span>&nbsp` ;
-							html += `<span class="color2">${data.data[j].content}<span><br>`;
+							html += '<div class="f1 rowH4" style="height:50px;">';
+							html += `<span class="border1">${data.data[j].register}</span>` ;
+							html += `<span class="border2">${data.data[j].content}</span><br>`;
+							html += '<button class="delComment">삭제</button>'
+							html+='</div>'
 						}
 
+						console.log(html);
 						// console.log(data.data);
 						$("#comments").empty().append(html);
 
@@ -118,10 +122,11 @@
 			<div class="f1 rowH color3">댓글</div>
 			<div id="comments">
 			<% for(let j=0;j< data2.length;j++){%>
-
-				<span class="color1"><%=data2[j].register%></span>
-				<span class="color2"><%=data2[j].content%></span><br>
-
+			<div class="f1 rowH4" style="height:50px;">
+				<span class="border1"><%=data2[j].register%></span>
+				<span class="border2"><%=data2[j].content%></span><br>
+				<button class="delComment">삭제</button>
+			</div>
 			<%}%>
 			</div>
 			<div class="f1 rowH color4" style="height:80px;align-items:center!important;">

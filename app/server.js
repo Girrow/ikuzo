@@ -192,7 +192,7 @@ var server = {
                       return;
                   }
 
-                  console.log(resultList);
+                  // console.log(resultList);
                   res.render("m12/faq.html", {data :resultList});
                 });
             });

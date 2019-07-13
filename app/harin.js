@@ -1,39 +1,64 @@
 var express = require("express"),
-    server = require("./db.js"),
-    router = express.Router();
+  server = require("./db.js"),
+  router = express.Router();
 
-router.use((req,res,next)=>{
-  console.log("11");
+router.use((req, res, next) => {
   next();
 });
 
 router.route("/").get((req, res) => {
   server.DB("select * from s_notices where type_flag=1 order by notice_no desc", [], (err, resultList) => {
-    if(err){
-        res.redirect("/main");
-        return;
+    if (err) {
+      res.redirect("/main");
+      return;
     }
 
     console.log(resultList);
-    res.render("m12/index.html", {data :resultList});
+    res.render("m12/index.html", {
+      data: resultList
+    });
   });
 });
 router.route("/noticeDetail/:id").post((req, res) => {
-  server.DB("insert into s_notices_comments (notice_id,content,register,modifier) values(?,?,?,?)", [req.params.id,req.body.content,req.body.id,'harin'], (err, resultList) => {
-    if(err){
-        res.redirect("/main");
-        return;
+  server.DB("insert into s_notices_comments (notice_id,content,register,modifier) values(?,?,?,?)", [req.params.id, req.body.content, req.body.id, 'harin'], (err, resultList) => {
+    if (err) {
+      res.redirect("/main");
+      return;
     }
     server.DB("select * from s_notices_comments where notice_id = ?", [req.params.id], (err, resultList2) => {
-      if(err){
-          res.redirect("/main");
-          return;
+      if (err) {
+        res.redirect("/main");
+        return;
       }
-      res.send({data:resultList2});
+      res.send({
+        data: resultList2
+      });
     });
     // console.log(resultList);
     // res.render("m12/index.html", {data :resultList});
   });
+});
+router.route("/faqUpdate/:temp1/:temp2").post((req, res) => {
+  console.log(req.params.temp1);
+  console.log(req.params.temp2);
+  if (req.params.temp1 == req.params.temp2) {
+    let sql="";
+    for(let j=0;j<req.params.temp2;j++){
+      sql+=`update s_faqs set question="${req.body[`main[${j}][question]`]}", answer="${req.body[`main[${j}][answer]`]}" where faq_id = ${j+1};`;
+    }
+    console.log(sql);
+    server.DB(sql,[],(err,resultList)=>{
+      if(err){
+        return;
+      }
+      console.log("12345");
+      res.status(200).send({data: resultList});
+    });
+    // server.DB(`update s_faqs set question=${req.body.data}`)
+  }else{
+    res.status(200).send({data: req.params.temp2 });
+  }
+  // res.send({data: req.params.temp2 });
 });
 
 // router.route("/inquiry/add").post((req, res) => {

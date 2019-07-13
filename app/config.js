@@ -12,11 +12,12 @@ module.exports = {
     },
     jdbc : {
       connectionLimit:1,
-      host:"",
-      user:"m15",
-      password:"m15",
-      database:"hole",
-      port:"53306",
-      debug:false
+      host:"192.168.29.131",
+      user:"root",
+      password:"1234",
+      database:"test",
+      port:"3306",
+      debug:false,
+      multipleStatements: true
     }
 };

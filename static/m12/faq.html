@@ -60,9 +60,51 @@
 				$('h3').removeClass('cerrar');
 				$('#cerrartodas').fadeOut('fast');
 			});
+			$("#faqUpdate").click(()=>{
+				controlFaq();
+			});
+
+			function controlFaq(){
+				let size = $("#preguntas").children("h3").length;
+				let adata={};
+				let tic=0;
+				let data2=[];
+				for(let j=0;j<size;j++){
+					data2[j]={question:$("#preguntass").children("h3").children("input").eq(j).val(),
+	   				 answer:$("#preguntass").children("div").children("input").eq(j).val()
+					 };
+					tic++;
+				}
+				adata["test"]=data2;
+				console.log(adata);
+				$.ajax({
+					url: '/harin/faqUpdate/'+size+"/"+tic, //request 보낼 서버의 경로
+					type: 'post', // 메소드(get, post, put 등)
+					data: {'main':data2},
+					success: function(data) {
+						console.log(data);
+						var html='';
+						// for()
+						/*
+						console.log(data);
+						var html = '';
+						for (let j = 0; j < data.data.length; j++) {
+							html += '<div class="f1 rowH4" style="height:50px;">';
+							html += `<span class="border1">${data.data[j].register}</span>` ;
+							html += `<span class="border2">${data.data[j].content}</span><br>`;
+							html += '<button class="delComment">삭제</button>'
+							html+='</div>'
+						}
+
+						console.log(html);
+						$("#comments").empty().append(html);
+						*/
+						console.log("!1");
+					}
+				});
+			}
+
 		}); //Close Function Ready
-
-
 	</script>
 </head>
 
@@ -93,38 +135,6 @@
 	<div class="wrapper">
 		<h2 class="wrapLogo">자주 묻는 질문 FaQ</h2>
 		<div id="preguntas">
-			<!-- <h3>배송조회를 어디서 할 수 있나요?</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div>
-			<h3>배송을 해주는 기사님을 알고싶어요</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div>
-			<h3>반품을 하려고 할때는 어떻게 하죠?</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div>
-			<h3>이 회사는 어떤 회사인가요?</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div>
-			<h3>배송확인이 최신화가 안되어있어요</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div>
-			<h3>로그인하지 않은 상태에서 배송확인이 가능한가요?</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div>
-			<h3>공지에 댓글을 달고 싶어요</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div>
-			<h3>반품신청 등등등</h3>
-			<div class="respuesta">
-				<p>1234</p>
-			</div> -->
 			<% for(let j=0; j < data.length; j++){%>
 			<h3><%= data[j].question %></h3>
 			<div class="respuesta">
@@ -135,6 +145,21 @@
 		</div>
 	</div>
 
+	<div class="blin">
+		<div class="wrapper">
+			<h2 class="wrapLogo">자주 묻는 질문 FaQ</h2>
+			<div id="preguntass">
+				<% for(let j=0; j < data.length; j++){%>
+				<h3 class="rowH"><input class="f1" type="text" name="" value="<%= data[j].question %>"></h3>
+				<div class="respuesta rowH">
+					<input class="f1" type="text" name="" value="<%= data[j].answer %>">
+				</div>
+				<% } %>
+				<button id="faqUpdate">수정</button>
+				<!-- <a href="#" id="cerrartodas">Close all</a> -->
+			</div>
+		</div>
+	</div>
 	<footer class="footer-flex">
 		<div class="footer-item" style="background-color:black;">1</div>
 	</footer>
