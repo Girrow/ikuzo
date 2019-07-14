@@ -69,7 +69,7 @@ CREATE TABLE `s_faqs` (
 COMMENT='정하린 FAQ // 추가 테이블 // 조인하지 않는 고정 데이터값'
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=6
+AUTO_INCREMENT=11
 ;
 CREATE TABLE `s_messages` (
 	`message_id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '메세지 번호',
@@ -101,13 +101,13 @@ CREATE TABLE `s_notices` (
 COMMENT='공지사항'
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=17
+AUTO_INCREMENT=19
 ;
 CREATE TABLE `s_notices_comments` (
 	`notice_comment_id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '서비스 댓글 번호',
 	`notice_id` INT(11) NOT NULL COMMENT '참조할 글번호',
 	`content` VARCHAR(200) NOT NULL COMMENT '서비스 내용',
-	`del_flag` INT(11) NOT NULL COMMENT '삭제여부',
+	`del_flag` INT(11) NOT NULL DEFAULT '0' COMMENT '삭제여부',
 	`register` VARCHAR(50) NULL DEFAULT NULL COMMENT '등록인',
 	`regist_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
 	`modifier` VARCHAR(20) NULL DEFAULT NULL COMMENT '수정인',
@@ -117,6 +117,7 @@ CREATE TABLE `s_notices_comments` (
 COMMENT='공지 댓글'
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=23
 ;
 CREATE TABLE `s_returns` (
 	`return_id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '반품 번호',
@@ -128,7 +129,7 @@ CREATE TABLE `s_returns` (
 	`modifier` VARCHAR(50) NULL DEFAULT NULL COMMENT '수정인',
 	`modify_date` TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시',
 	PRIMARY KEY (`return_id`)
-)
+)f
 COMMENT='반품목록'
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
@@ -145,3 +146,5 @@ COMMENT='반품 상세목록'
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
+
+multipleStatements: true

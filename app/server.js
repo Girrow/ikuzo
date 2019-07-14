@@ -186,7 +186,7 @@ var server = {
                 });
             });
             라우터.route("/faq").get((req, res) => {
-                server.DB("select * from s_faqs", [], (err, resultList) => {
+                server.DB("select *,ROW_NUMBER() OVER () as numb from s_faqs", [], (err, resultList) => {
                   if(err){
                       res.redirect("/main");
                       return;

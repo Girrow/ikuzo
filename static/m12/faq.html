@@ -60,45 +60,88 @@
 				$('h3').removeClass('cerrar');
 				$('#cerrartodas').fadeOut('fast');
 			});
+			$(".faqB").click(function(e){
+				e.preventDefault();
+				var result = confirm("삭제하시겠습니까?");
+				if(result){
+					console.log($(this).val());
+					console.log($(".faqB"));
+					$.ajax({
+						url: '/harin/faqDelete/'+$(this).val(), //request 보낼 서버의 경로
+						type: 'post', // 메소드(get, post, put 등)
+						success: function(data) {
+							console.log(data);
+							alert("수정되었습니다.");
+							// var html='<div style="">수정되었습니다.</div>';
+							// $(".blin").empty().append(html);
+							location.href="/faq";
+							console.log("!1");
+						}
+					});
+					// alert("삭제되었습니다.");
+				// location.href="/faq";
+				}else{
+				}
+			});
 			$("#faqUpdate").click(()=>{
 				controlFaq();
 			});
+			$("#questAdd").click(function(){
+				 let html="";
+		 		 html+=`<h3 class="rowH"><input class="f1" type="text" name=""></h3>
+				 <div class="respuesta rowH"><input class="f1" type="text" name="">
+				 </div>`
+				 $("#preguntass").append(html);
+				 $('h3').off().click(function() {
 
+					 $(this).next('.respuesta').toggle(function() {
+
+						 $(this).next('.respuesta');
+
+					 }, function() {
+
+						 $(this).next('.respuesta').fadeIn('fast');
+
+					 });
+
+					 if ($(this).hasClass('cerrar')) {
+						 $(this).removeClass('cerrar');
+					 } else {
+						 $(this).addClass('cerrar');
+					 };
+
+					 if ($('.cerrar').length >= 3) {
+
+						 $('#cerrartodas').fadeIn('fast');
+
+					 } else {
+						 $('#cerrartodas').hide();
+						 var abiertas = $('.cerrar').length;
+						 console.log(abiertas);
+					 }
+				 }); //Close Function Click
+			});
 			function controlFaq(){
-				let size = $("#preguntas").children("h3").length;
+				let size = $("#preguntass").children("h3").length;
 				let adata={};
-				let tic=0;
+				let tic=$("#preguntas").children("h3").length;
 				let data2=[];
 				for(let j=0;j<size;j++){
 					data2[j]={question:$("#preguntass").children("h3").children("input").eq(j).val(),
 	   				 answer:$("#preguntass").children("div").children("input").eq(j).val()
 					 };
-					tic++;
 				}
-				adata["test"]=data2;
 				console.log(adata);
 				$.ajax({
-					url: '/harin/faqUpdate/'+size+"/"+tic, //request 보낼 서버의 경로
+					url: '/harin/faqUpdate/'+tic+"/"+size, //request 보낼 서버의 경로
 					type: 'post', // 메소드(get, post, put 등)
 					data: {'main':data2},
 					success: function(data) {
 						console.log(data);
-						var html='';
-						// for()
-						/*
-						console.log(data);
-						var html = '';
-						for (let j = 0; j < data.data.length; j++) {
-							html += '<div class="f1 rowH4" style="height:50px;">';
-							html += `<span class="border1">${data.data[j].register}</span>` ;
-							html += `<span class="border2">${data.data[j].content}</span><br>`;
-							html += '<button class="delComment">삭제</button>'
-							html+='</div>'
-						}
-
-						console.log(html);
-						$("#comments").empty().append(html);
-						*/
+						alert("수정되었습니다.");
+						// var html='<div style="">수정되었습니다.</div>';
+						// $(".blin").empty().append(html);
+						location.href="/faq";
 						console.log("!1");
 					}
 				});
@@ -150,14 +193,16 @@
 			<h2 class="wrapLogo">자주 묻는 질문 FaQ</h2>
 			<div id="preguntass">
 				<% for(let j=0; j < data.length; j++){%>
-				<h3 class="rowH"><input class="f1" type="text" name="" value="<%= data[j].question %>"></h3>
+				<h3 class="rowH"><input class="f1" type="text" name="" value="<%= data[j].question %>"><button class="faqB" value="<%=data[j].faq_id%>">삭제</button></h3>
 				<div class="respuesta rowH">
 					<input class="f1" type="text" name="" value="<%= data[j].answer %>">
+
 				</div>
 				<% } %>
-				<button id="faqUpdate">수정</button>
 				<!-- <a href="#" id="cerrartodas">Close all</a> -->
 			</div>
+			<button id="faqUpdate">수정</button>
+			<button id="questAdd">추가</button>
 		</div>
 	</div>
 	<footer class="footer-flex">

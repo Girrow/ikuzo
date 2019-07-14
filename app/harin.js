@@ -19,6 +19,26 @@ router.route("/").get((req, res) => {
     });
   });
 });
+router.route("/inquiryAd").get((req, res) => {
+  server.DB("select * from s_notices where type_flag=2 order by notice_id desc", [], (err, resultList) => {
+    if (err) {
+      res.redirect("/main");
+      return;
+    }
+
+    res.render("m12/inquiryAd.html", {data :resultList});
+  });
+});
+router.route("/inquiryGet/:id").get((req, res) => {
+  server.DB("select * from s_notices_comments where notice_id= ? order by notice_id desc", [req.params.id], (err, resultList) => {
+    if (err) {
+      res.redirect("/main");
+      return;
+    }
+
+    res.send({data :resultList});
+  });
+});
 router.route("/noticeDetail/:id").post((req, res) => {
   server.DB("insert into s_notices_comments (notice_id,content,register,modifier) values(?,?,?,?)", [req.params.id, req.body.content, req.body.id, 'harin'], (err, resultList) => {
     if (err) {
@@ -38,27 +58,71 @@ router.route("/noticeDetail/:id").post((req, res) => {
     // res.render("m12/index.html", {data :resultList});
   });
 });
+
+router.route("/noticeDeleteC/:id").post((req, res) => {
+  server.DB("delete from s_notices_comments where notice_comment_id = ?", [req.params.id], (err, resultList) => {
+    if (err) {
+      res.redirect("/main");
+      return;
+    }
+    res.send({});
+    // console.log(resultList);
+    // res.render("m12/index.html", {data :resultList});
+  });
+});
+
+router.route("/faqDelete/:id").post((req, res) => {
+  server.DB("delete from s_faqs where faq_id = ?", [req.params.id], (err, resultList) => {
+    if (err) {
+      res.redirect("/main");
+      return;
+    }
+    res.send({});
+    // console.log(resultList);
+    // res.render("m12/index.html", {data :resultList});
+  });
+});
 router.route("/faqUpdate/:temp1/:temp2").post((req, res) => {
-  console.log(req.params.temp1);
-  console.log(req.params.temp2);
+  // console.log(req.params.temp1);
+  // console.log(req.params.temp2);
   if (req.params.temp1 == req.params.temp2) {
-    let sql="";
-    for(let j=0;j<req.params.temp2;j++){
-      sql+=`update s_faqs set question="${req.body[`main[${j}][question]`]}", answer="${req.body[`main[${j}][answer]`]}" where faq_id = ${j+1};`;
+    let sql = "";
+    for (let j = 0; j < req.params.temp2; j++) {
+      sql += `update s_faqs set question="${req.body[`main[${j}][question]`]}", answer="${req.body[`main[${j}][answer]`]}" where faq_id = ${j+1};`;
     }
     console.log(sql);
-    server.DB(sql,[],(err,resultList)=>{
-      if(err){
+    server.DB(sql, [], (err, resultList) => {
+      if (err) {
         return;
       }
       console.log("12345");
-      res.status(200).send({data: resultList});
+      res.status(200).send({
+        data: resultList
+      });
     });
     // server.DB(`update s_faqs set question=${req.body.data}`)
-  }else{
-    res.status(200).send({data: req.params.temp2 });
+  } else if (req.params.temp1 < req.params.temp2) {
+    console.log(req.params.temp1, req.params.temp2);
+    let sql = "";
+    for (let j = 0; j < req.params.temp1; j++) {
+      sql += `update s_faqs set question="${req.body[`main[${j}][question]`]}", answer="${req.body[`main[${j}][answer]`]}" where faq_id = ${j+1};`;
+    };
+    for (let j = req.params.temp1; j < req.params.temp2; j++) {
+      sql += `insert into s_faqs(question,answer) values("${req.body[`main[${j}][question]`]}","${req.body[`main[${j}][answer]`]}");`;
+    };
+
+    server.DB(sql, [], (err, resultList) => {
+      if (err) {
+        return;
+      }
+      console.log("12345");
+      res.status(200).send({
+        data: resultList
+      });
+    });
+    //   select A.*,ROW_NUMBER() OVER () as numb
+    // from s_faqs as A
   }
-  // res.send({data: req.params.temp2 });
 });
 
 // router.route("/inquiry/add").post((req, res) => {

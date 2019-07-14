@@ -134,6 +134,9 @@ button:hover:before,button:hover:after{
   transition:800ms ease all;
 }
 
+button.faqB{
+  font-size: 0.7em!important;
+}
 
 
 /* End button */

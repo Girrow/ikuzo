@@ -47,14 +47,35 @@
 							html += '<div class="f1 rowH4" style="height:50px;">';
 							html += `<span class="border1">${data.data[j].register}</span>` ;
 							html += `<span class="border2">${data.data[j].content}</span><br>`;
-							html += '<button class="delComment">삭제</button>'
+							html += `<button class="delComment" value="${data.data[j].notice_comment_id}">삭제</button>`
 							html+='</div>'
 						}
 
 						console.log(html);
 						// console.log(data.data);
 						$("#comments").empty().append(html);
-
+						$(".delComment").click(function(e){
+                e.preventDefault();
+                var result = confirm("삭제하시겠습니까?");
+                if(result){
+                  console.log($(this).val());
+                  console.log($(".delComment"));
+                  $.ajax({
+                    url: '/harin/noticeDeleteC/'+$(this).val(), //request 보낼 서버의 경로
+                    type: 'post', // 메소드(get, post, put 등)
+                    success: function(data) {
+                      console.log(data);
+                      alert("수정되었습니다.");
+                      location.reload();
+                      // var html='<div style="">수정되었습니다.</div>';
+                      // $(".blin").empty().append(html);
+                      console.log("!1");
+                    }
+                  });
+                  // alert("삭제되었습니다.");
+                // location.href="/faq";
+                }
+            });
 						//서버로부터 정상적으로 응답이 왔을 때 실행
 					},
 					error: function(err) {
@@ -72,7 +93,28 @@
 			$("#deleteThis").click(function() {
 				location.href = "/index/<%=data[0].notice_id %>/delete"
 			});
-
+			$(".delComment").click(function(e){
+					e.preventDefault();
+					var result = confirm("삭제하시겠습니까?");
+					if(result){
+						console.log($(this).val());
+						console.log($(".delComment"));
+						$.ajax({
+							url: '/harin/noticeDeleteC/'+$(this).val(), //request 보낼 서버의 경로
+							type: 'post', // 메소드(get, post, put 등)
+							success: function(data) {
+								console.log(data);
+								alert("수정되었습니다.");
+								location.reload();
+								// var html='<div style="">수정되었습니다.</div>';
+								// $(".blin").empty().append(html);
+								console.log("!1");
+							}
+						});
+						// alert("삭제되었습니다.");
+					// location.href="/faq";
+					}
+			});
 		});
 	</script>
 </head>
@@ -125,7 +167,7 @@
 			<div class="f1 rowH4" style="height:50px;">
 				<span class="border1"><%=data2[j].register%></span>
 				<span class="border2"><%=data2[j].content%></span><br>
-				<button class="delComment">삭제</button>
+				<button class="delComment" value="<%=data2[j].notice_comment_id%>">삭제</button>
 			</div>
 			<%}%>
 			</div>
