@@ -53,11 +53,12 @@
 				<tbody class="ttbody">
 					<% for(let j=0;j< data.length;j++){%>
 					<tr>
-						<td data-label="Account"><%=data[j].inNo%></td>
-						<td data-label="Due Date"><%=data[j].writer%></td>
-						<td data-label="Amount"><%=data[j].nowStatus%>1</td>
-						<td data-label="Period"><%=data[j].deliDate%></td>
-						<td data-label="Period"><button type="button" onClick="location.href='deliveryDetail/<%=data[j].inNo%>'">자세히 보기</button></td>
+						<td data-label="Account"><%=data[j].sale_id%></td>
+						<td data-label="Due Date"><%=data[j].businessnumber%></td>
+						<td data-label="Amount"><%=data[j].app_status%>1</td>
+						<td data-label="Period"><%=data[j].app_date%></td>
+						<td data-label="Period"><button type="button"
+								onClick="location.href='deliveryDetail/<%=data[j].sale_id%>'">자세히 보기</button></td>
 					</tr>
 					<%}%>
 					<!-- <tr>

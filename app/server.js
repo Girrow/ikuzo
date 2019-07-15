@@ -214,7 +214,7 @@ var server = {
                       return;
                   }
 
-                  console.log(resultList);
+                  // console.log(resultList);
                   res.render("m12/deliveryConf.html", {data :resultList});
                 });
             });
@@ -230,7 +230,7 @@ var server = {
                       res.redirect("/main");
                       return;
                   }
-                  console.log(JSON.stringify(resultList));
+                  // console.log(JSON.stringify(resultList));
                   res.render("m12/engineerList.html", {data :resultList});
                 });
             });
